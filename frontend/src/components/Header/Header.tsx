@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 import headerImg from './images/diamond-logo.png';
@@ -12,13 +13,13 @@ export default function Header() {
         <Link to="/" className="menu-button">
           HOME
         </Link>
-        <Link to="/" className="menu-button">
+        <Link to="/roulette" className="menu-button">
           ROULETTE
         </Link>
-        <Link to="/" className="menu-button">
+        <Link to="/slots" className="menu-button">
           SLOTS
         </Link>
-        <Link to="/" className="menu-button">
+        <Link to="/blackjack" className="menu-button">
           BLACKJACK
         </Link>
       </div>
