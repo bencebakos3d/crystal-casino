@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 import Index from './pages/Index/Index';
 import Roulette from './pages/Roulette/Roulette';
 import Slots from './pages/Slots/Slots';
+import Blackjack from './pages/Blackjack/Blackjack';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Index />} />
           <Route path="/roulette" element={<Roulette />} />
           <Route path="/slots" element={<Slots />} />
+          <Route path="/blackjack" element={<Blackjack />} />
         </Routes>
       </Router>
     </div>
