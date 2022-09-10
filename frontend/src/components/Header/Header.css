@@ -1,9 +1,10 @@
 .header-wrapper {
   margin-left: 30px;
-  margin-top: 30px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  position: relative;
+  z-index: 2;
 }
 .header-logo {
   width: 300px;
@@ -29,4 +30,11 @@
   padding-right: 30px;
   text-decoration: none;
   color: #ffffff;
+  font-family: 'Oswald';
+  font-weight: 400;
+  margin: 0;
+  font-size: 24px;
+}
+.menu-button:hover {
+  background-color: #7e04b2;
 }
