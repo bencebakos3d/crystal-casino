@@ -2,4 +2,6 @@ import {wheel} from "../src/roulette/rouletteWheel";
 import {app} from "../index";
 
 
-app.get("/playroulette",wheel.spin);
+export function setUpRouletteRoutes():void{
+    app.get("/playroulette",wheel.spin);
+}
