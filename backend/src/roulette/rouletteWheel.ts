@@ -17,4 +17,9 @@ class RouletteWheel{
         console.log(RouletteFields[0]);
     }
 
+    public spin():void{
+        console.log("spinning");
+    }
 }
+
+export var wheel = new RouletteWheel();
