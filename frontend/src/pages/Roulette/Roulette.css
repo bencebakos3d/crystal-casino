@@ -15,13 +15,30 @@
   flex-direction: row;
   justify-content: space-between;
 }
-.roulette-wheel {
+.roulette-wheel-wrapper {
   width: 35%;
+  height: 100%;
+  position: relative;
+}
+.roulette-wheel {
+  width: 100%;
   object-fit: contain;
   animation-name: rotateRoulette;
   animation-iteration-count: infinite;
   animation-duration: 5000ms;
   animation-timing-function: ease-out;
+  position: absolute;
+}
+
+.roulette-ball {
+  width: 100%;
+  object-fit: contain;
+  position: absolute;
+  animation-name: rotateBall;
+  animation-iteration-count: infinite;
+  animation-duration: 5000ms;
+  animation-timing-function: ease-out;
+  position: absolute;
 }
 
 @keyframes rotateRoulette {
@@ -31,6 +48,16 @@
 
   100% {
     transform: rotate(720deg);
+  }
+}
+
+@keyframes rotateBall {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(1240deg);
   }
 }
 .roulette-table {
