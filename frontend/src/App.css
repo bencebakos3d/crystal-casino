@@ -24,3 +24,7 @@ p {
   margin: 0;
   color: #ffffff;
 }
+
+body {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(65, 15, 84, 1) 100%);
+}

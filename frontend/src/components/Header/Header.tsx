@@ -1,27 +1,29 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import './Header.css';
 import headerImg from './images/diamond-logo.png';
 
 export default function Header() {
+  const { pathname } = useLocation();
+
   return (
     <div className="header-wrapper">
       <div className="header-logo">
         <img src={headerImg} alt="" />
       </div>
       <div className="header">
-        <Link to="/" className="menu-button">
+        <NavLink to="/" className="menu-button">
           HOME
-        </Link>
-        <Link to="/roulette" className="menu-button">
+        </NavLink>
+        <NavLink to="/roulette" className="menu-button">
           ROULETTE
-        </Link>
-        <Link to="/slots" className="menu-button">
+        </NavLink>
+        <NavLink to="/slots" className="menu-button">
           SLOTS
-        </Link>
-        <Link to="/blackjack" className="menu-button">
+        </NavLink>
+        <NavLink to="/blackjack" className="menu-button">
           BLACKJACK
-        </Link>
+        </NavLink>
       </div>
     </div>
   );

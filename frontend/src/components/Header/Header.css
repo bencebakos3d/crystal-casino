@@ -38,3 +38,7 @@
 .menu-button:hover {
   background-color: #7e04b2;
 }
+
+.active {
+  background-color: #7e04b2;
+}
