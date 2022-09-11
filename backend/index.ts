@@ -1,12 +1,9 @@
-import { startRoulettEndpoints } from "./routes/rouletteRouter";
+import routes from "./routes";
 
 const express = require('express');
 const PORT = process.env.port || 3001;
-const app = express();
+export const app = express();
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
-
-startRoulettEndpoints();
-

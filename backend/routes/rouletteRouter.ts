@@ -1,8 +1,5 @@
 import {wheel} from "../src/roulette/rouletteWheel";
+import {app} from "../index";
 
-const express = require('express');
-const app = express();
 
-export function startRoulettEndpoints(){
-    app.listen("playroulette",wheel.spin());
-}
+app.get("/playroulette",wheel.spin);
