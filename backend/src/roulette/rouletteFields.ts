@@ -35,5 +35,8 @@ export const  RouletteFields = {
     12 : "red",
     35 : "black",
     3  : "red",
-    26 : "black"
+    26 : "black",
+
+
+    field : function(index:number){ return Object.entries(this)[index]}
 }

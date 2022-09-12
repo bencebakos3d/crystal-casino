@@ -12,14 +12,29 @@ import {RouletteFields} from "./rouletteFields";
     pozició = jelenlegi elem +3 ;
     return rulettefields[pozició]
 */
-class RouletteWheel{
+
+function testrandom():number{
+    return Math.floor(Math.random() * (360 - 0)) + 0;
+}
+
+
+export class RouletteWheel{
+    private  sliceValue:number;
+    private  wheelValue:number;
+    private  countOfFields:number;
+    private currentpos:number;
+
     public constructor(){
-        console.log(RouletteFields[0]);
+        this.wheelValue = 360;
+        this.countOfFields = 37;
+        this.currentpos = 0;
+        this.sliceValue = this.wheelValue/this.countOfFields;
     }
 
     public spin():void{
-        console.log("spinning");
+        let spinvalue:number = testrandom();
+        let finalIndex:number = Math.floor(spinvalue/this.sliceValue); 
+        this.currentpos += finalIndex;
+        console.log(RouletteFields.field(this.currentpos));
     }
 }
-
-export var wheel = new RouletteWheel();
