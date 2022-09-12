@@ -23,11 +23,13 @@
 .roulette-wheel {
   width: 100%;
   object-fit: contain;
-  animation-name: rotateRoulette;
+  /* animation-name: rotateRoulette;
   animation-iteration-count: infinite;
   animation-duration: 5000ms;
-  animation-timing-function: ease-out;
+  animation-timing-function: ease-out; */
   position: absolute;
+  transition-timing-function: ease-out;
+  /* transition-duration: 500ms; */
 }
 
 .roulette-ball {
