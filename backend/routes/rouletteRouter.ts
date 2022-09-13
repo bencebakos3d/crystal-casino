@@ -1,8 +1,7 @@
-import {RouletteWheel} from "../src/roulette/rouletteWheel";
 import {app} from "../index";
+import {wheel} from "../src/roulette/rouletteWheel";
 
 
 export function setUpRouletteRoutes():void{
-    var wheel = new RouletteWheel();
     app.get("/playroulette",wheel.spin);
 }

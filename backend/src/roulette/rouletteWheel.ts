@@ -18,23 +18,25 @@ function testrandom():number{
 }
 
 
-export class RouletteWheel{
-    private  sliceValue:number;
+class RouletteWheel{
     private  wheelValue:number;
     private  countOfFields:number;
-    private currentpos:number;
-
+    private  currentpos:number;
+    private  sliceValue:number;
+    
     public constructor(){
         this.wheelValue = 360;
         this.countOfFields = 37;
         this.currentpos = 0;
         this.sliceValue = this.wheelValue/this.countOfFields;
     }
-
+    
     public spin():void{
         let spinvalue:number = testrandom();
         let finalIndex:number = Math.floor(spinvalue/this.sliceValue); 
         this.currentpos += finalIndex;
-        console.log(RouletteFields.field(this.currentpos));
+        console.log("RouletteFields.field(this.currentpos)");
     }
 }
+
+export var wheel = new RouletteWheel();
