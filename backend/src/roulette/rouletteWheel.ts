@@ -35,7 +35,7 @@ class RouletteWheel{
         let spinvalue:number = testrandom();
         let finalIndex:number = Math.floor(spinvalue/this.sliceValue); 
         this.currentpos += finalIndex;
-        console.log("RouletteFields.field(this.currentpos)");
+        console.log(RouletteFields.field(this.currentpos));
     }
 }
 
