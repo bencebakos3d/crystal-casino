@@ -63,10 +63,63 @@
   }
 }
 .roulette-table {
-  width: 60%;
-  height: 100%;
+  height: 65%;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   background-image: url('images/roulette-table.jpg');
+  aspect-ratio: 2.5;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.zero-col {
+  width: 6%;
+  height: 60%;
+}
+.normal-col {
+  width: 87%;
+  display: flex;
+  flex-direction: column;
+}
+.ending-col {
+  width: 7%;
+}
+.roulette-table-row {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: row;
+}
+.roulette-table-row > div {
+  width: 4.08%;
+}
+.roulette-table-row > div:last-child {
+  width: calc(100% - (23 * 4.08%));
+}
+.roulette-table-row-upper {
+  width: 100%;
+  height: 60%;
+}
+.roulette-table-row-lower {
+  height: 40%;
+}
+.roulette-table-row-thirds,
+.roulette-table-row-thirdHalves {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  padding-left: 2%;
+  box-sizing: border-box;
+}
+.roulette-table-row-thirds > div {
+  width: calc(100% / 3);
+}
+.roulette-table-row-thirdHalves > div {
+  width: calc(100% / 6);
+}
+
+.normal-col > tr > td {
+  width: calc(100% / 24);
 }
