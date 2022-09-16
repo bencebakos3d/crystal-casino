@@ -2,6 +2,7 @@ import React from 'react';
 import './Roulette.css';
 import rouletteWheelImg from './images/roulette-wheel.png';
 import rouletteBallImg from './images/roulette-ball.png';
+import { arrayBuffer } from 'stream/consumers';
 
 export default function Roulette() {
   function spinRoulette(angle: number, time: number): void {
@@ -61,7 +62,32 @@ export default function Roulette() {
                 <div onClick={() => betOnNumber([33, 36])}></div>
                 <div onClick={() => betOnNumber([36])}></div>
               </div>
-              <div className="roulette-table-row"></div>
+              <div className="roulette-table-row">
+                <div onClick={() => betOnNumber([0, 2, 3])}></div>
+                <div onClick={() => betOnNumber([2, 3])}></div>
+                <div onClick={() => betOnNumber([2, 3, 5, 6])}></div>
+                <div onClick={() => betOnNumber([5, 6])}></div>
+                <div onClick={() => betOnNumber([5, 6, 8, 9])}></div>
+                <div onClick={() => betOnNumber([8, 9])}></div>
+                <div onClick={() => betOnNumber([8, 9, 11, 12])}></div>
+                <div onClick={() => betOnNumber([11, 12])}></div>
+                <div onClick={() => betOnNumber([11, 12, 14, 15])}></div>
+                <div onClick={() => betOnNumber([14, 15])}></div>
+                <div onClick={() => betOnNumber([14, 15, 17, 18])}></div>
+                <div onClick={() => betOnNumber([17, 18])}></div>
+                <div onClick={() => betOnNumber([17, 18, 20, 21])}></div>
+                <div onClick={() => betOnNumber([20, 21])}></div>
+                <div onClick={() => betOnNumber([20, 21, 23, 24])}></div>
+                <div onClick={() => betOnNumber([23, 24])}></div>
+                <div onClick={() => betOnNumber([23, 24, 26, 27])}></div>
+                <div onClick={() => betOnNumber([26, 27])}></div>
+                <div onClick={() => betOnNumber([26, 27, 29, 30])}></div>
+                <div onClick={() => betOnNumber([29, 30])}></div>
+                <div onClick={() => betOnNumber([29, 30, 32, 33])}></div>
+                <div onClick={() => betOnNumber([32, 33])}></div>
+                <div onClick={() => betOnNumber([32, 33, 35, 36])}></div>
+                <div onClick={() => betOnNumber([35, 36])}></div>
+              </div>
               <div className="roulette-table-row"></div>
               <div className="roulette-table-row"></div>
               <div className="roulette-table-row"></div>

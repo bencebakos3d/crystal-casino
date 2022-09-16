@@ -93,6 +93,11 @@
 }
 .roulette-table-row > div {
   width: 4.08%;
+  cursor: pointer;
+}
+.roulette-table-row > div:hover {
+  background-color: limegreen;
+  border-radius: 100px;
 }
 .roulette-table-row > div:last-child {
   width: calc(100% - (23 * 4.08%));
