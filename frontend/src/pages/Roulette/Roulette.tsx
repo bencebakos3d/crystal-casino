@@ -4,6 +4,8 @@ import rouletteWheelImg from './images/roulette-wheel.png';
 import rouletteBallImg from './images/roulette-ball.png';
 import { arrayBuffer } from 'stream/consumers';
 
+const url = process.env.REACT_APP_SERVER_URL;
+
 export default function Roulette() {
   function spinRoulette(angle: number, time: number): void {
     let wheel = document.getElementById('rouletteWheel') as HTMLElement;
@@ -14,16 +16,43 @@ export default function Roulette() {
   }
 
   function handleSpin(): void {
+    fetch(`${url}/api/spinRoulette`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        numbers: allNumbers,
+        bets: allBets,
+      }),
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          console.log('Spin successful');
+        } else {
+          console.log('Spin unsuccesful');
+          return response.json();
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        console.log('Server unavailable');
+      });
     spinRoulette(370, 2000);
     setTimeout(() => spinRoulette(0, 0), 2000);
   }
 
   function betOnNumber(arr: number[]) {
+    allNumbers.push(arr);
+    allBets.push(100);
     console.log('bet on ' + arr);
   }
   function betOnColor(str: string) {
     console.log('bet on color: ' + str);
   }
+
+  let allNumbers: number[][] = [];
+  let allBets: number[] = [];
 
   return (
     <div className="page-wrapper">
