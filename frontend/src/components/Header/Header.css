@@ -41,4 +41,6 @@
 
 .active {
   background-color: #7e04b2;
+  border-top: 5px solid white;
+  margin-bottom: 5px;
 }

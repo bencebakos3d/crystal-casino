@@ -4,8 +4,7 @@ import rouletteWheelImg from './images/roulette-wheel.png';
 import rouletteBallImg from './images/roulette-ball.png';
 import { arrayBuffer } from 'stream/consumers';
 
-const url = process.env.REACT_APP_SERVER_URL;
-
+const url = 'http://localhost:3001/api';
 export default function Roulette() {
   function spinRoulette(angle: number, time: number): void {
     let wheel = document.getElementById('rouletteWheel') as HTMLElement;
@@ -16,7 +15,7 @@ export default function Roulette() {
   }
 
   function handleSpin(): void {
-    fetch(`${url}/api/spinRoulette`, {
+    fetch(`${url}/spinRoulette`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -25,21 +24,21 @@ export default function Roulette() {
         numbers: allNumbers,
         bets: allBets,
       }),
-    })
-      .then((response) => {
-        if (response.status === 200) {
-          console.log('Spin successful');
-        } else {
-          console.log('Spin unsuccesful');
-          return response.json();
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        console.log('Server unavailable');
-      });
-    spinRoulette(370, 2000);
-    setTimeout(() => spinRoulette(0, 0), 2000);
+    });
+    //   .then((response) => {
+    //     if (response.status === 200) {
+    //       console.log('Spin successful');
+    //     } else {
+    //       console.log('Spin unsuccesful');
+    //       return response.json();
+    //     }
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //     console.log('Server unavailable');
+    //   });
+    // spinRoulette(370, 2000);
+    // setTimeout(() => spinRoulette(0, 0), 2000);
   }
 
   function betOnNumber(arr: number[]) {
