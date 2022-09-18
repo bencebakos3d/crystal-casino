@@ -1,11 +1,11 @@
 import { app } from '../index';
 import { Request, Response } from 'express';
-import { wheel } from '../src/roulette/rouletteWheel';
+import {playRoulette} from '../src/roulette'
 
 export function setUpRouletteRoutes(): void {
   app.post('/api/spinRoulette', (req: Request, res: Response) => {
     const numbers = req.body.numbers;
     const bets = req.body.bets;
-    console.log(req.body);
+    console.log(playRoulette(numbers,bets,req.session.id))
   });
 }

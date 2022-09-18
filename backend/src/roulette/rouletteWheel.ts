@@ -1,4 +1,6 @@
 import {RouletteFields} from "./rouletteFields";
+import {Player} from '../player/player';
+
 //https://www.youtube.com/watch?v=WIIf3WaO5x4
 //https://www.grc.com/otg/uheprng.htm?fbclid=IwAR1xL4H59C4z_pWLrIfPpy8B1tDpcD_lGVHBBZgTEXiuc029RXs3zuxZTnY
 
@@ -18,12 +20,18 @@ function testrandom():number{
 }
 
 
-class RouletteWheel{
+export class RouletteWheel{
     private  wheelValue:number;
     private  countOfFields:number;
     private  currentpos:number;
     private  sliceValue:number;
     
+    public getMultiplier(val:number[])
+    {
+        return 36/val.length;
+    }
+
+
     public constructor(){
         this.wheelValue = 360;
         this.countOfFields = 37;
@@ -31,12 +39,23 @@ class RouletteWheel{
         this.sliceValue = this.wheelValue/this.countOfFields;
     }
     
-    public spin():void{
+    public spin(gamePlayer:Player){
         let spinvalue:number = testrandom();
         let finalIndex:number = Math.floor(spinvalue/this.sliceValue); 
         this.currentpos += finalIndex;
-        console.log(RouletteFields.field(this.currentpos));
+        const winnerNumber = parseInt(RouletteFields.field(finalIndex)[0]);
+        const winnerColor = RouletteFields.field(finalIndex)[1];
+        let total = 0;
+
+        for(let i=0;i<gamePlayer.getNumbers().length;++i)
+        {
+            let element = gamePlayer.getNumbers()[i];
+            if(element.includes(winnerNumber)){
+                total += gamePlayer.getBets()[i]*this.getMultiplier(element);
+            }
+        }
+        console.log(winnerNumber);
+        console.log(gamePlayer.getNumbers());
+        console.log(total);
     }
 }
-
-export var wheel = new RouletteWheel();

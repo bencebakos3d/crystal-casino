@@ -1,31 +1,40 @@
-class Player{
-    private name:string;
+export class Player{
+    private sessionId:string;
     private balance:number;
-    private bet:number;
+    private bets:number[];
+    private numbers:number[][];
 
-    constructor(){
-        this.name = "";
-        this.balance = 0;
-        this.bet = 0;
+    constructor(parameterNumbers:number[][],parameterBets:number[],parameterSessionId:string){
+        this.sessionId = parameterSessionId;
+        this.balance = 2000;
+        this.bets = parameterBets;
+        this.numbers =parameterNumbers;
     }
 
-    public won(){
-        this.balance += this.bet;
-        this.bet = 0;
+    public getNumbers(){
+        return this.numbers;
+    }
+    public getBets() {
+        return this.bets;
     }
 
-    public lost(){
-        this.bet = 0;
+    public setBets(parameterBets:number[]):void {
+        this.bets = parameterBets;
     }
 
-    public placeBets(amount:number){
-        if(amount > this.balance){
-            return -1;
-        }
-        else{
-            this.bet = amount;
-            this.balance-= amount;
-            return 0;
-        }
+    public getBalance():number{
+        return this.balance;
+    }
+
+    public setBlanace(value:number):void{
+        this.balance = value;
+    }
+
+    public increaseBalance(value:number):void{
+        this.balance += value;
+    }
+
+    public decreaseBalance(value:number):void{
+        this.balance-=value;
     }
 }
