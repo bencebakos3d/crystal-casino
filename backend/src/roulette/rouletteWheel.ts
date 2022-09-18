@@ -26,17 +26,24 @@ export class RouletteWheel{
     private  currentpos:number;
     private  sliceValue:number;
     
-    public getMultiplier(val:number[])
-    {
-        return 36/val.length;
-    }
-
-
     public constructor(){
         this.wheelValue = 360;
         this.countOfFields = 37;
         this.currentpos = 0;
         this.sliceValue = this.wheelValue/this.countOfFields;
+    }
+
+    public getMultiplier(val:number[])
+    {
+        return 36/val.length;
+    }
+
+    private accumulate(values:number[]){
+        let total:number = 0;
+        for(let element of values){
+            total+=element;
+        }
+        return total;
     }
     
     public spin(gamePlayer:Player){
@@ -47,6 +54,10 @@ export class RouletteWheel{
         const winnerColor = RouletteFields.field(finalIndex)[1];
         let total = 0;
 
+        if (this.accumulate(gamePlayer.getBets()) == 0 || this.accumulate(gamePlayer.getBets()) > gamePlayer.getBalance()){
+            return -1;
+        }
+
         for(let i=0;i<gamePlayer.getNumbers().length;++i)
         {
             let element = gamePlayer.getNumbers()[i];
@@ -54,8 +65,21 @@ export class RouletteWheel{
                 total += gamePlayer.getBets()[i]*this.getMultiplier(element);
             }
         }
-        console.log(winnerNumber);
-        console.log(gamePlayer.getNumbers());
-        console.log(total);
+        
+        if(total != 0){
+            gamePlayer.increaseBalance(total);
+        }
+
+        else if(total == 0){
+            gamePlayer.decreaseBalance(this.accumulate(gamePlayer.getBets()));
+            total -= this.accumulate(gamePlayer.getBets());
+        }
+
+        let responseObject = {
+            balance: gamePlayer.getBalance(),
+            prize: total,
+            winnerNumber: RouletteFields.field(finalIndex)[0]
+        }
+        return responseObject;
     }
 }
