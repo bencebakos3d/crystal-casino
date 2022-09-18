@@ -7,7 +7,7 @@ export default function Index() {
   //
 
   return (
-    <div className="page-wrapper">
+    <div>
       <img src={bgImg} alt="Diamond Casino" className="bg-img" />
       <div className="textbox">
         <div className="experience-wrapper">
