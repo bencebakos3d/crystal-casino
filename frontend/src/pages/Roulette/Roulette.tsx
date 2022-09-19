@@ -55,11 +55,11 @@ export default function Roulette() {
     })
       .then((response) => {
         if (response.status === 200) {
-          let returnedNumber = 15;
+          let returnedNumber = 20;
 
           for (let i = 0; i < RouletteFields.length; i++) {
             if (returnedNumber == RouletteFields[i]) {
-              let rouletteAngle = 9.72972972973 * i - 5;
+              let rouletteAngle = 10 * i - 5;
               spinRoulette(rouletteAngle);
             }
           }
