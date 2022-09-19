@@ -6,14 +6,42 @@ import { arrayBuffer } from 'stream/consumers';
 
 const url = 'http://localhost:3001/api';
 export default function Roulette() {
-  function spinRoulette(angle: number, time: number): void {
-    let wheel = document.getElementById('rouletteWheel') as HTMLElement;
-    wheel.style.transform = 'rotate(' + angle + 'deg)';
-    wheel.style.transitionDuration = time.toString() + 'ms';
+  //
+  // Spins roulette wheel and ball
+  //
+  function spinRoulette(angle: number): void {
+    //
+    // Total time of roulette animation
+    //
+    const animationDuration = '3000ms';
+
+    const wheel = document.getElementById('rouletteWheel') as HTMLElement;
+    const ball = document.getElementById('rouletteBall') as HTMLElement;
     wheel.style.transitionProperty = 'all';
+
+    ball.style.transform = 'rotate(' + (angle + 720) + 'deg)';
+    ball.style.transitionDuration = animationDuration;
+    ball.style.transitionProperty = 'all';
+
+    wheel.style.transform = 'rotate(-720deg)';
+    wheel.style.transitionDuration = animationDuration;
+
     console.log('You clicked submit.');
+    //
+    // Resets the roulette wheel and ball
+    //
+    setTimeout(() => {
+      wheel.style.transform = 'rotate(0deg)';
+      wheel.style.transitionDuration = '0ms';
+      ball.style.transform = 'rotate(0deg)';
+      ball.style.transitionDuration = '0ms';
+    }, 3500);
   }
 
+  const RouletteFields = [0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33, 1, 20, 14, 31, 9, 22, 18, 29, 7, 28, 12, 35, 3, 26];
+  //
+  // Sends chosen numbers and bets to the backend, returns the random number and the amount of money the player has
+  //
   function handleSpin(): void {
     fetch(`${url}/spinRoulette`, {
       method: 'POST',
@@ -24,41 +52,43 @@ export default function Roulette() {
         numbers: allNumbers,
         bets: allBets,
       }),
-    });
-    //   .then((response) => {
-    //     if (response.status === 200) {
-    //       console.log('Spin successful');
-    //     } else {
-    //       console.log('Spin unsuccesful');
-    //       return response.json();
-    //     }
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //     console.log('Server unavailable');
-    //   });
-    // spinRoulette(370, 2000);
-    // setTimeout(() => spinRoulette(0, 0), 2000);
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          let returnedNumber = 15;
+
+          for (let i = 0; i < RouletteFields.length; i++) {
+            if (returnedNumber == RouletteFields[i]) {
+              let rouletteAngle = 9.72972972973 * i - 5;
+              spinRoulette(rouletteAngle);
+            }
+          }
+          console.log(response.json());
+        } else {
+          console.log('Spin unsuccesful');
+          return response.json();
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        console.log('Server unavailable');
+      });
   }
 
+  let allNumbers: number[][] = [];
+  let allBets: number[] = [];
   function betOnNumber(arr: number[]) {
     allNumbers.push(arr);
     allBets.push(100);
     console.log('bet on ' + arr);
   }
-  function betOnColor(str: string) {
-    console.log('bet on color: ' + str);
-  }
-
-  let allNumbers: number[][] = [];
-  let allBets: number[] = [];
 
   return (
     <div className="page-wrapper">
       <div className="roulette-table-wrapper">
         <div className="roulette-wheel-wrapper">
           <img src={rouletteWheelImg} alt="" className="roulette-wheel" id="rouletteWheel" />
-          <img src={rouletteBallImg} alt="" className="roulette-ball" />
+          <img src={rouletteBallImg} alt="" className="roulette-ball" id="rouletteBall" />
         </div>
         <div className="roulette-table">
           <div className="zero-col" onClick={() => betOnNumber([0])}></div>
@@ -204,8 +234,8 @@ export default function Roulette() {
               <div className="roulette-table-row-thirdHalves">
                 <div></div>
                 <div></div>
-                <div onClick={() => betOnColor('red')}></div>
-                <div onClick={() => betOnColor('black')}></div>
+                <div onClick={() => betOnNumber([1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35])}></div>
+                <div onClick={() => betOnNumber([2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36])}></div>
                 <div></div>
                 <div></div>
               </div>
