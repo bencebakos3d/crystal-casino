@@ -26,6 +26,7 @@ p {
 }
 
 body {
+  width: 100vw;
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(65, 15, 84, 1) 100%);
 }
 
@@ -48,4 +49,16 @@ body {
 .large-button:hover {
   transform: scale(1.1);
   transition: all ease-in-out 0.15s;
+}
+
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 48px;
+    line-height: 66px;
+  }
+
+  p {
+    font-size: 20px;
+    line-height: 38px;
+  }
 }
