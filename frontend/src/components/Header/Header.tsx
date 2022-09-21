@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import './Header.css';
+import './Header.modules.css';
 import headerImg from './images/diamond-logo.png';
 
 export default function Header() {
