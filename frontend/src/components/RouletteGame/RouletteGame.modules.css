@@ -1,13 +1,22 @@
 .roulette-table-wrapper {
   width: 1100px;
-  height: 400px;
+  height: 600px;
   background-color: #00813d;
   border-radius: 20px;
   padding: 50px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   box-shadow: 0px 0px 25px 5px black;
+}
+
+.roulette-gamearea-wrapper {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 .roulette-wheel-wrapper {
   width: 35%;
@@ -128,4 +137,47 @@
 
 .normal-col > tr > td {
   width: calc(100% / 24);
+}
+
+.chips-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.chips-wrapper > div {
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all ease-in-out 0.15s;
+}
+.chips-wrapper > div:hover {
+  box-shadow: 0px 0px 5px 3px lime;
+  transition: all ease-in-out 0.15s;
+  transform: scale(1.1);
+}
+
+#chip-1 {
+  background-image: url('images/chip_1.png');
+}
+#chip-5 {
+  background-image: url('images/chip_5.png');
+}
+#chip-25 {
+  background-image: url('images/chip_25.png');
+}
+#chip-100 {
+  background-image: url('images/chip_100.png');
+}
+#chip-500 {
+  background-image: url('images/chip_500.png');
+}
+
+.activeChip {
+  box-shadow: 0px 0px 5px 3px white;
 }
