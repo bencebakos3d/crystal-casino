@@ -1,5 +1,6 @@
 import {RouletteFields} from "./rouletteFields";
 import {Player} from '../player/player';
+import {dbHandler} from "../../database/databaseManager";
 
 //https://www.youtube.com/watch?v=WIIf3WaO5x4
 //https://www.grc.com/otg/uheprng.htm?fbclid=IwAR1xL4H59C4z_pWLrIfPpy8B1tDpcD_lGVHBBZgTEXiuc029RXs3zuxZTnY
@@ -74,6 +75,8 @@ export class RouletteWheel{
             gamePlayer.decreaseBalance(this.accumulate(gamePlayer.getBets()));
             total -= this.accumulate(gamePlayer.getBets());
         }
+
+        dbHandler.playerUpdate(gamePlayer);
 
         let responseObject = {
             balance: gamePlayer.getBalance(),

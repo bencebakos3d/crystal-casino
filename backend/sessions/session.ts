@@ -3,7 +3,6 @@ import { app } from "../index";
 
 const userSession = require("express-session");
 
-
 export function initSessions():void{
     app.use(userSession({
         secret:"developmentsecret"
