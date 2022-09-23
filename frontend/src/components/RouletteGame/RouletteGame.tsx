@@ -90,11 +90,13 @@ export default function RouletteGame() {
   return (
     <div>
       <div className="roulette-table-wrapper">
-        <div className="roulette-gamearea-wrapper">
+        <div className="roulette-left-col">
           <div className="roulette-wheel-wrapper">
             <img src={rouletteWheelImg} alt="" className="roulette-wheel" id="rouletteWheel" />
             <img src={rouletteBallImg} alt="" className="roulette-ball" id="rouletteBall" />
           </div>
+        </div>
+        <div className="roulette-right-col">
           <div className="roulette-table">
             <div className="zero-col" onClick={() => betOnNumber([0])}></div>
             <div className="normal-col">
@@ -252,13 +254,13 @@ export default function RouletteGame() {
               <div onClick={() => betOnNumber([1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34])}></div>
             </div>
           </div>
-        </div>
-        <div className="chips-wrapper">
-          <div id="chip-1" onClick={() => setValue(1)} className={value == 1 ? 'activeChip' : ''}></div>
-          <div id="chip-5" onClick={() => setValue(5)} className={value == 5 ? 'activeChip' : ''}></div>
-          <div id="chip-25" onClick={() => setValue(25)} className={value == 25 ? 'activeChip' : ''}></div>
-          <div id="chip-100" onClick={() => setValue(100)} className={value == 100 ? 'activeChip' : ''}></div>
-          <div id="chip-500" onClick={() => setValue(500)} className={value == 500 ? 'activeChip' : ''}></div>
+          <div className="chips-wrapper">
+            <div id="chip-1" onClick={() => setValue(1)} className={value == 1 ? 'activeChip' : ''}></div>
+            <div id="chip-5" onClick={() => setValue(5)} className={value == 5 ? 'activeChip' : ''}></div>
+            <div id="chip-25" onClick={() => setValue(25)} className={value == 25 ? 'activeChip' : ''}></div>
+            <div id="chip-100" onClick={() => setValue(100)} className={value == 100 ? 'activeChip' : ''}></div>
+            <div id="chip-500" onClick={() => setValue(500)} className={value == 500 ? 'activeChip' : ''}></div>
+          </div>
         </div>
       </div>
 

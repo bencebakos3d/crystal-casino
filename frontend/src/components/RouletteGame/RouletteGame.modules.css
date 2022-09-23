@@ -1,26 +1,33 @@
 .roulette-table-wrapper {
-  width: 1100px;
+  width: 90vw;
+  max-width: 1200px;
   height: 600px;
   background-color: #00813d;
   border-radius: 20px;
   padding: 50px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 0px 0px 25px 5px black;
-}
-
-.roulette-gamearea-wrapper {
-  width: 100%;
-  height: 400px;
-  display: flex;
   flex-direction: row;
   justify-content: space-between;
+  box-shadow: 0px 0px 25px 5px black;
+  box-sizing: border-box;
+}
+
+.roulette-left-col {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.roulette-right-col {
+  width: 55%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 .roulette-wheel-wrapper {
-  width: 35%;
-  height: 100%;
+  width: 100%;
   position: relative;
 }
 .roulette-wheel {
@@ -67,7 +74,8 @@
   }
 }
 .roulette-table {
-  height: 65%;
+  margin-top: 50px;
+  width: 100%;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -140,6 +148,7 @@
 }
 
 .chips-wrapper {
+  margin-top: 100px;
   display: flex;
   flex-direction: row;
   align-items: center;
