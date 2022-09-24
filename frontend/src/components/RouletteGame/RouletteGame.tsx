@@ -53,8 +53,6 @@ export default function RouletteGame() {
   // Sends chosen numbers and bets to the backend, returns the random number and the amount of money the player has
   //
   function handleSpin(): void {
-    console.log(allNumbers);
-    console.log(allBets);
     fetch(`${url}/spinRoulette`, {
       method: 'POST',
       headers: {
@@ -75,7 +73,6 @@ export default function RouletteGame() {
               spinRoulette(rouletteAngle);
             }
           }
-          console.log(response.json());
         } else {
           console.log('Spin unsuccesful');
           return response.json();
@@ -89,6 +86,10 @@ export default function RouletteGame() {
 
   return (
     <div>
+      <div className="mobile-unable">
+        <div className="mobile-phone"></div>
+        <h2>Please rotate your device for the best possible experience.</h2>
+      </div>
       <div className="roulette-table-wrapper">
         <div className="roulette-left-col">
           <div className="roulette-wheel-wrapper">
@@ -261,12 +262,11 @@ export default function RouletteGame() {
             <div id="chip-100" onClick={() => setValue(100)} className={value == 100 ? 'activeChip' : ''}></div>
             <div id="chip-500" onClick={() => setValue(500)} className={value == 500 ? 'activeChip' : ''}></div>
           </div>
+          <button className="spin-btn large-button" onClick={handleSpin}>
+            SPIN
+          </button>
         </div>
       </div>
-
-      <button className="spin-btn large-button" onClick={handleSpin}>
-        SPIN
-      </button>
     </div>
   );
 }

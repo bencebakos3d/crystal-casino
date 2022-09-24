@@ -1,8 +1,15 @@
+.mobile-unable {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
 .roulette-table-wrapper {
   width: 90vw;
   max-width: 1200px;
   height: 600px;
-  background-color: #00813d;
+  background-image: url(images/felt_texture.jpg);
+  background-size: 80%;
   border-radius: 20px;
   padding: 50px;
   display: flex;
@@ -18,6 +25,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 }
 .roulette-right-col {
   width: 55%;
@@ -25,6 +33,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 }
 .roulette-wheel-wrapper {
   width: 100%;
@@ -74,7 +83,6 @@
   }
 }
 .roulette-table {
-  margin-top: 50px;
   width: 100%;
   background-size: contain;
   background-position: center;
@@ -148,7 +156,6 @@
 }
 
 .chips-wrapper {
-  margin-top: 100px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -189,4 +196,47 @@
 
 .activeChip {
   box-shadow: 0px 0px 5px 3px white;
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  .mobile-unable {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    background-color: #00813d;
+    border-radius: 20px;
+    height: calc(100vh - 230px);
+    padding: 30px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+  }
+  .mobile-phone {
+    height: 50px;
+    width: 100px;
+    border: 3px solid white;
+    border-radius: 10px;
+    animation: rotatePhone 1.5s ease-in-out infinite alternate;
+    /* display: none; */
+  }
+  @keyframes rotatePhone {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(-90deg);
+    }
+    100% {
+      transform: rotate(-90deg);
+    }
+  }
+  .mobile-unable > h2 {
+    text-align: center;
+    padding-top: 50px;
+  }
+  .roulette-table-wrapper {
+    display: none;
+  }
+}
+@media only screen and (max-width: 768px) and (orientation: portrait) {
 }
