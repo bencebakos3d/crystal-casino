@@ -23,11 +23,21 @@ class SQLManager{
       let queryObject = new Promise((resolve)=>{
         this.connection.query("SELECT * FROM users WHERE SessionID LIKE \""+ id +"\";",(error:any, response:any)=>{
           if(error)throw error;
-          let result ={
-            uname: response[0].Username,
-            balance: response[0].Balance
+          if(response.length == 0){
+            gamer.setBlanace(2000);
+            this.insertRecord(gamer.getSessionID(),gamer.getBalance().toString(),gamer.getUserName(),"2018.02.13");
+            let result ={
+              uname: gamer.getUserName(),
+              balance: gamer.getBalance()+500
+            }
+            resolve(result);
+          }else{
+            let result ={
+              uname: response[0].Username,
+              balance: response[0].Balance
+            }
+            resolve(result);
           }
-          resolve(result);
         });
       })
       let userValues = await queryObject.then((val:any)=>{ return val});
@@ -55,19 +65,6 @@ class SQLManager{
       let timeOject = new Date();
       let timeString:string = timeOject.getFullYear() +"."+ timeOject.getMonth()+"."+timeOject.getHours();
       this.updateRecord(user.getSessionID(),user.getBalance().toString(),user.getUserName(),timeString);
-    }
-
-    async insertIfNotExist(id:string){
-      let commandInsert:string = "INSERT IGNORE INTO users(SessionID, Balance, Username, LastVisit) ";
-      let commandSelect:string = "SELECT \""+id+"\", \"2000\", \"default\", \"1900.01.01\" FROM users "
-      let commandWhere:string = "WHERE SessionID NOT LIKE "+"\""+id+"\";";
-      let commandFull:string = commandInsert + commandSelect + commandWhere;
-      let queryObject = new Promise((resolve)=>{
-        this.connection.query(commandFull,(error:any)=>{throw error;});
-        resolve(1);
-      })
-
-      await queryObject.then();
     }
 }
 

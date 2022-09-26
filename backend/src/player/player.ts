@@ -17,10 +17,9 @@ export class Player{
 
     async syncFromDB(){
         //kijavtiani a konkurenciát NAGYON NEM JÓ
-        await dbHandler.insertIfNotExist(this.sessionId);
-        let result = await  dbHandler.queryPlayer(this.sessionId);
-        this.userName = result.userName;
-        this.balance = result.balance;
+        let temporary = await dbHandler.queryPlayer(this.sessionId);
+        this.setBlanace(temporary.getBalance());
+        this.setUsername(temporary.getUserName());
     }
 
     public getNumbers(){
