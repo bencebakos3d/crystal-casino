@@ -6,6 +6,19 @@ export default function Index() {
   // Ide jon a useState es useEffect kod meg mindenfele valtozo
   //
 
+  const url = 'http://localhost:3001/api';
+
+  fetch(`${url}/sessionstart`, {
+    method: 'GET',
+    credentials: 'include',
+    headers: {
+      'content-type': 'application/json',
+    }
+  })
+    .then((response) => {
+      console.log(response)
+    })
+
   return (
     <div className="index-wrapper">
       <img src={bgImg} alt="Diamond Casino" className="bg-img" />

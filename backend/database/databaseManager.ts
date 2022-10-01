@@ -29,7 +29,7 @@ class SQLManager {
           this.insertRecord(gamer.getSessionID(), gamer.getBalance().toString(), gamer.getUserName(), '2018.02.13');
           let result = {
             uname: gamer.getUserName(),
-            balance: gamer.getBalance() + 500,
+            balance: gamer.getBalance(),
           };
           resolve(result);
         } else {

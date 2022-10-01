@@ -76,8 +76,6 @@ export class RouletteWheel{
             total -= this.accumulate(gamePlayer.getBets());
         }
 
-        dbHandler.playerUpdate(gamePlayer);
-
         let responseObject = {
             balance: gamePlayer.getBalance(),
             prize: total,
