@@ -9,6 +9,20 @@ import Slots from './pages/Slots/Slots';
 import Blackjack from './pages/Blackjack/Blackjack';
 
 function App() {
+
+  const url = 'http://localhost:3001';
+  if(document.cookie.length == 0){
+    fetch(`${url}/setcookie`, {
+      credentials: 'include',
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+      },
+    }).then((response) => {
+      console.log(response);
+    });
+  }
+
   return (
     <div className="App">
       <Router>

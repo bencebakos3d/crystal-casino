@@ -1,0 +1,11 @@
+{
+    "dev":{
+        "host":"localhost",
+        "user":"root",
+        "password":"kZ98U001y$aD",
+        "database":"diamondCasino",
+        "driver":"mysql",
+        "multipleStatements":"true"
+        
+    }, "sql-file":"true"
+}

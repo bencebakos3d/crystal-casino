@@ -1,0 +1,242 @@
+.mobile-unable {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.roulette-table-wrapper {
+  width: 90vw;
+  max-width: 1200px;
+  height: 600px;
+  background-image: url(images/felt_texture.jpg);
+  background-size: 80%;
+  border-radius: 20px;
+  padding: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-shadow: 0px 0px 25px 5px black;
+  box-sizing: border-box;
+}
+
+.roulette-left-col {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.roulette-right-col {
+  width: 55%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.roulette-wheel-wrapper {
+  width: 100%;
+  position: relative;
+}
+.roulette-wheel {
+  width: 100%;
+  object-fit: contain;
+  /* animation-name: rotateRoulette;
+  animation-iteration-count: infinite;
+  animation-duration: 5000ms;
+  animation-timing-function: ease-out; */
+  position: absolute;
+  transition-timing-function: ease-out;
+  /* transition-duration: 500ms; */
+}
+
+.roulette-ball {
+  width: 100%;
+  object-fit: contain;
+  position: absolute;
+  /* animation-name: rotateBall;
+  animation-iteration-count: infinite;
+  animation-duration: 5000ms;
+  animation-timing-function: ease-out; */
+  position: absolute;
+  transition-timing-function: ease-out;
+}
+
+@keyframes rotateRoulette {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(720deg);
+  }
+}
+
+@keyframes rotateBall {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(1240deg);
+  }
+}
+.roulette-table {
+  width: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('images/roulette-table.jpg');
+  aspect-ratio: 2.5;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.zero-col {
+  width: 6.5%;
+  height: 60%;
+}
+.normal-col {
+  width: 86.5%;
+  display: flex;
+  flex-direction: column;
+}
+.ending-col {
+  width: 7%;
+}
+.roulette-table-row {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: row;
+}
+.roulette-table-row > div {
+  width: 4.08%;
+  cursor: pointer;
+}
+.ending-col > div {
+  width: 100%;
+  height: 20%;
+  cursor: pointer;
+}
+.roulette-table-row > div:hover,
+.ending-col > div:hover {
+  background-color: rgba(61, 255, 61, 0.658);
+  border-radius: 10px;
+}
+.roulette-table-row > div:last-child {
+  width: calc(100% - (23 * 4.08%));
+}
+.roulette-table-row-upper {
+  width: 100%;
+  height: 60%;
+}
+.roulette-table-row-lower {
+  height: 40%;
+}
+.roulette-table-row-thirds,
+.roulette-table-row-thirdHalves {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  padding-left: 2%;
+  box-sizing: border-box;
+}
+.roulette-table-row-thirds > div {
+  width: calc(100% / 3);
+}
+.roulette-table-row-thirdHalves > div {
+  width: calc(100% / 6);
+}
+
+.normal-col > tr > td {
+  width: calc(100% / 24);
+}
+
+.chips-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.chips-wrapper > div {
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all ease-in-out 0.15s;
+}
+.chips-wrapper > div:hover {
+  box-shadow: 0px 0px 5px 3px lime;
+  transition: all ease-in-out 0.15s;
+  transform: scale(1.1);
+}
+
+#chip-1 {
+  background-image: url('images/chip_1.png');
+}
+#chip-5 {
+  background-image: url('images/chip_5.png');
+}
+#chip-25 {
+  background-image: url('images/chip_25.png');
+}
+#chip-100 {
+  background-image: url('images/chip_100.png');
+}
+#chip-500 {
+  background-image: url('images/chip_500.png');
+}
+
+.activeChip {
+  box-shadow: 0px 0px 5px 3px white;
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  .mobile-unable {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    background-color: #00813d;
+    border-radius: 20px;
+    height: calc(100vh - 230px);
+    padding: 30px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+  }
+  .mobile-phone {
+    height: 50px;
+    width: 100px;
+    border: 3px solid white;
+    border-radius: 10px;
+    animation: rotatePhone 1.5s ease-in-out infinite alternate;
+    /* display: none; */
+  }
+  @keyframes rotatePhone {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(-90deg);
+    }
+    100% {
+      transform: rotate(-90deg);
+    }
+  }
+  .mobile-unable > h2 {
+    text-align: center;
+    padding-top: 50px;
+  }
+  .roulette-table-wrapper {
+    display: none;
+  }
+}
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+}
