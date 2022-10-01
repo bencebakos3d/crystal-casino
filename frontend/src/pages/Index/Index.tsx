@@ -6,18 +6,17 @@ export default function Index() {
   // Ide jon a useState es useEffect kod meg mindenfele valtozo
   //
 
-  const url = 'http://localhost:3001/api';
+  const url = 'http://localhost:3001';
 
-  fetch(`${url}/sessionstart`, {
-    method: 'GET',
+  fetch(`${url}/setcookie`, {
     credentials: 'include',
+    method: 'GET',
     headers: {
       'content-type': 'application/json',
-    }
-  })
-    .then((response) => {
-      console.log(response)
-    })
+    },
+  }).then((response) => {
+    console.log(response);
+  });
 
   return (
     <div className="index-wrapper">
