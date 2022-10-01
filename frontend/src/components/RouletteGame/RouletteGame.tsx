@@ -56,7 +56,6 @@ export default function RouletteGame() {
     fetch(`${url}/spinRoulette`, {
       credentials: 'include',
       method: 'POST',
-      credentials: 'include',
       headers: {
         'content-type': 'application/json',
       },
