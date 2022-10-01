@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { SetStateAction } from 'react';
 import './RouletteGame.modules.css';
 import rouletteWheelImg from './images/roulette-wheel.png';
 import rouletteBallImg from './images/roulette-ball.png';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 export default function RouletteGame() {
+  const [allNumbers, setAllNumbers] = useState<number[][]>([]);
+  const [allBets, setAllBets] = useState<number[]>([]);
   const [value, setValue] = useState(1);
   const [activeChip, setActiveChip] = useState('boxShadow: 0px 0px 5px 3px white;');
+  const [balance, setBalance] = useState(2000);
 
   const url = 'http://localhost:3001/api';
   //
@@ -40,19 +43,25 @@ export default function RouletteGame() {
     }, 3500);
   }
 
-  let allNumbers: number[][] = [];
-  let allBets: number[] = [];
-  function betOnNumber(arr: number[]) {
-    allNumbers.push(arr);
-    allBets.push(value);
+  const betOnNumber = (arr: number[]) => {
+    if (balance - value >= 0) {
+      setAllNumbers((current) => [...current, arr]);
+      setAllBets((current) => [...current, value]);
+      setBalance((prevbalance) => prevbalance - value);
+    } else {
+      alert("You don't have the money");
+    }
+
     console.log('bet on ' + arr);
     console.log('betting ' + value);
-  }
+  };
   const RouletteFields = [0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33, 1, 20, 14, 31, 9, 22, 18, 29, 7, 28, 12, 35, 3, 26];
   //
   // Sends chosen numbers and bets to the backend, returns the random number and the amount of money the player has
   //
   function handleSpin(): void {
+    setAllNumbers([]);
+    setAllBets([]);
     fetch(`${url}/spinRoulette`, {
       credentials: 'include',
       method: 'POST',
@@ -67,6 +76,8 @@ export default function RouletteGame() {
       .then((response) => response.json())
       .then((data) => {
         let returnedNumber = parseInt(data.winnerNumber);
+        let userBalance = data.balance;
+        setBalance(userBalance);
 
         for (let i = 0; i < RouletteFields.length; i++) {
           if (returnedNumber == RouletteFields[i]) {
@@ -263,6 +274,9 @@ export default function RouletteGame() {
           <button className="spin-btn large-button" onClick={handleSpin}>
             SPIN
           </button>
+          <div>
+            <h2>Balance: {balance}</h2>
+          </div>
         </div>
       </div>
     </div>
