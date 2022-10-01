@@ -23,10 +23,17 @@ app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
 
-app.get('/setcookie', (req: any, res: any) => {
-  res.cookie(`Cookie token name`, `encrypted cookie string Value`);
+app.get('/setcookie',async (req: any, res: any) => {
+  await dbHandler.queryPlayer(req.session.id); //irni contains függvényt a dbbe
+  res.cookie(`SessionID`, req.session.id);
   res.send('Cookie have been saved successfully');
 });
+
+app.get('/testcookie',async (req: any, res: any) => {
+  console.log(req.cookies);
+});
+
+
 
 setUpRouletteRoutes();
 setUpSessionHandlers();

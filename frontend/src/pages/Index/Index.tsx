@@ -8,7 +8,8 @@ export default function Index() {
 
   const url = 'http://localhost:3001';
 
-  fetch(`${url}/setcookie`, {
+
+  fetch(`${url}/testcookie`, {
     credentials: 'include',
     method: 'GET',
     headers: {
