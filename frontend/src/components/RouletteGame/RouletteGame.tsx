@@ -54,6 +54,7 @@ export default function RouletteGame() {
   //
   function handleSpin(): void {
     fetch(`${url}/spinRoulette`, {
+      credentials: 'include',
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -64,20 +65,17 @@ export default function RouletteGame() {
         bets: allBets,
       }),
     })
-      .then((response) => {
-        if (response.status === 200) {
-          let returnedNumber = 20;
+      .then((response) => response.json())
+      .then((data) => {
+        let returnedNumber = parseInt(data.winnerNumber);
 
-          for (let i = 0; i < RouletteFields.length; i++) {
-            if (returnedNumber == RouletteFields[i]) {
-              let rouletteAngle = 10 * i - 5;
-              spinRoulette(rouletteAngle);
-            }
+        for (let i = 0; i < RouletteFields.length; i++) {
+          if (returnedNumber == RouletteFields[i]) {
+            let rouletteAngle = 10 * i - 5;
+            spinRoulette(rouletteAngle);
           }
-        } else {
-          console.log('Spin unsuccesful');
-          return response.json();
         }
+        console.log(data);
       })
       .catch((err) => {
         console.log(err);
