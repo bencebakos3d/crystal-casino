@@ -51,16 +51,16 @@ class SQLManager {
 
   private insertRecord(id: string, balance: string, username: string, lastLogin: string) {
     let commandInsert: string = 'INSERT INTO users(SessionID, Balance, Username, LastVisit) ';
-    let commandValues: string = 'VALUES (' + '"' + id + '", "' + balance + '", "' + username + '", ' + '"' + lastLogin + '");';
+    let commandValues: string = 'VALUES (' + '"' + id + '", "' + balance + '", "' + username + '", NOW());';
     let commandFull: string = commandInsert + commandValues;
     this.connection.query(commandFull, (err: any) => {
       if (err) throw err;
     });
   }
 
-  private updateRecord(id: string, balance: string, name: string, visit: string) {
+  private updateRecord(id: string, balance: string, name: string) {
     let commandUpdate = 'UPDATE users ';
-    let commandSet = 'SET SessionID=' + '"' + id + '", Balance=' + '"' + balance + '", Username=' + '"' + name + '", LastVisit=' + '"' + visit + '" ';
+    let commandSet = 'SET SessionID=' + '"' + id + '", Balance=' + '"' + balance + '", Username=' + '"' + name + '", LastVisit= NOW()';
     let commandWhere = 'WHERE SessionID LIKE "' + id + '";';
     let commandFull = commandUpdate + commandSet + commandWhere;
     this.connection.query(commandFull, (err: any) => {
@@ -71,7 +71,7 @@ class SQLManager {
   public playerUpdate(user: Player) {
     let timeOject = new Date();
     let timeString: string = timeOject.getFullYear() + '.' + timeOject.getMonth() + '.' + timeOject.getHours();
-    this.updateRecord(user.getSessionID(), user.getBalance().toString(), user.getUserName(), timeString);
+    this.updateRecord(user.getSessionID(), user.getBalance().toString(), user.getUserName());
   }
 }
 
