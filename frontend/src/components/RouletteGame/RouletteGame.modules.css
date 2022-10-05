@@ -137,11 +137,48 @@
   cursor: pointer;
   position: relative;
 }
-.roulette-table-row > div:hover:before,
-.ending-col > div:hover:before,
-.zero-col:hover:before,
-.roulette-table-row-thirdHalves > div:hover:before,
-.roulette-table-row-thirds > div:hover:before {
+
+.bet-1::before,
+.bet-5::before,
+.bet-25::before,
+.bet-100::before,
+.bet-500::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-image: url('images/chip_1.png');
+  background-size: contain;
+  z-index: 155;
+  width: 30px;
+  height: 30px;
+  z-index: 5;
+  background-repeat: no-repeat;
+  border-radius: 15px;
+}
+
+.bet-1::before {
+  background-image: url('images/chip_1.png');
+}
+.bet-5::before {
+  background-image: url('images/chip_5.png');
+}
+.bet-25::before {
+  background-image: url('images/chip_25.png');
+}
+.bet-100::before {
+  background-image: url('images/chip_100.png');
+}
+.bet-500::before {
+  background-image: url('images/chip_500.png');
+}
+
+.roulette-table-row > div:hover::after,
+.ending-col > div:hover:after,
+.zero-col:hover:after,
+.roulette-table-row-thirdHalves > div:hover:after,
+.roulette-table-row-thirds > div:hover::after {
   content: '';
   position: absolute;
   top: 50%;
@@ -151,6 +188,7 @@
   height: 20px;
   border-radius: 100%;
   left: 50%;
+  z-index: 10;
 }
 .roulette-table-row > div:last-child {
   width: calc(100% - (23 * 4.08%));
@@ -236,6 +274,20 @@
   justify-content: center;
   align-items: center;
   gap: 100px;
+}
+.footer-balance {
+  font-size: 1rem;
+  line-height: 1rem;
+}
+.footer-element-wrapper {
+  text-align: end;
+  width: 33%;
+}
+.footer-element-wrapper > h2 {
+  font-size: 2rem;
+}
+.footer-button-wrapper {
+  width: 33%;
 }
 
 @media only screen and (max-width: 768px) and (orientation: portrait) {
