@@ -333,12 +333,16 @@ export default function RouletteGame() {
             <div onClick={(event) => betOnNumber(event, [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34])}></div>
           </div>
         </div>
+        <button className="reset-bets" onClick={removeBets}></button>
       </div>
       <div className="roulette-footer">
         <div className="footer-element-wrapper">
-          <p className="footer-balance">Balance:</p>
-          <h2>$ {balance}</h2>
+          <div>
+            <p className="footer-balance">Balance:</p>
+            <h2>$ {balance}</h2>
+          </div>
         </div>
+
         <div className="chips-wrapper">
           <div id="chip-1" onClick={() => setValue(1)} className={value == 1 ? 'activeChip' : ''}></div>
           <div id="chip-5" onClick={() => setValue(5)} className={value == 5 ? 'activeChip' : ''}></div>
