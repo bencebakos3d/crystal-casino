@@ -29,11 +29,8 @@ app.get('/setcookie',async (req: any, res: any) => {
   res.send('Cookie have been saved successfully');
 });
 
-app.get('/testcookie',async (req: any, res: any) => {
-  console.log(req.cookies);
-});
 
 
-
-setUpRouletteRoutes();
 setUpSessionHandlers();
+setUpRouletteRoutes();
+
