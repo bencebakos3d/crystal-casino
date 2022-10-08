@@ -119,221 +119,223 @@ export default function RouletteGame() {
         <div className="mobile-phone"></div>
         <h2>Please rotate your device for the best possible experience.</h2>
       </div>
-      <div className="roulette-table-wrapper">
-        <div className="roulette-wheel-wrapper">
-          <img src={rouletteWheelImg} alt="" className="roulette-wheel" id="rouletteWheel" />
-          <img src={rouletteBallImg} alt="" className="roulette-ball" id="rouletteBall" style={{ opacity: 0 }} />
-        </div>
-        <div className="roulette-table">
-          <div className="zero-col" onClick={(event) => betOnNumber(event, [0])}></div>
-          <div className="normal-col">
-            <div className="roulette-table-row-upper">
-              <div className="roulette-table-row">
-                <div onClick={(event) => betOnNumber(event, [0, 1, 2, 3])}></div>
-                <div onClick={(event) => betOnNumber(event, [1, 2, 3])}></div>
-                <div onClick={(event) => betOnNumber(event, [1, 2, 3, 4, 5, 6])}></div>
-                <div onClick={(event) => betOnNumber(event, [4, 5, 6])}></div>
-                <div onClick={(event) => betOnNumber(event, [4, 5, 6, 7, 8, 9])}></div>
-                <div onClick={(event) => betOnNumber(event, [7, 8, 9])}></div>
-                <div onClick={(event) => betOnNumber(event, [7, 8, 9, 10, 11, 12])}></div>
-                <div onClick={(event) => betOnNumber(event, [10, 11, 12])}></div>
-                <div onClick={(event) => betOnNumber(event, [10, 11, 12, 13, 14, 15])}></div>
-                <div onClick={(event) => betOnNumber(event, [13, 14, 15])}></div>
-                <div onClick={(event) => betOnNumber(event, [13, 14, 15, 16, 17, 18])}></div>
-                <div onClick={(event) => betOnNumber(event, [16, 17, 18])}></div>
-                <div onClick={(event) => betOnNumber(event, [16, 17, 18, 19, 20, 21])}></div>
-                <div onClick={(event) => betOnNumber(event, [19, 20, 21])}></div>
-                <div onClick={(event) => betOnNumber(event, [19, 20, 21, 22, 23, 24])}></div>
-                <div onClick={(event) => betOnNumber(event, [22, 23, 24])}></div>
-                <div onClick={(event) => betOnNumber(event, [22, 23, 24, 25, 26, 27])}></div>
-                <div onClick={(event) => betOnNumber(event, [25, 26, 27])}></div>
-                <div onClick={(event) => betOnNumber(event, [25, 26, 27, 28, 29, 30])}></div>
-                <div onClick={(event) => betOnNumber(event, [28, 29, 30])}></div>
-                <div onClick={(event) => betOnNumber(event, [28, 29, 30, 31, 32, 33])}></div>
-                <div onClick={(event) => betOnNumber(event, [31, 32, 33])}></div>
-                <div onClick={(event) => betOnNumber(event, [31, 32, 33, 34, 35, 36])}></div>
-                <div onClick={(event) => betOnNumber(event, [34, 35, 36])}></div>
+      <div className="roulette-table-border">
+        <div className="roulette-table-wrapper">
+          <div className="roulette-wheel-wrapper">
+            <img src={rouletteWheelImg} alt="" className="roulette-wheel" id="rouletteWheel" />
+            <img src={rouletteBallImg} alt="" className="roulette-ball" id="rouletteBall" style={{ opacity: 0 }} />
+          </div>
+          <div className="roulette-table">
+            <div className="zero-col" onClick={(event) => betOnNumber(event, [0])}></div>
+            <div className="normal-col">
+              <div className="roulette-table-row-upper">
+                <div className="roulette-table-row">
+                  <div onClick={(event) => betOnNumber(event, [0, 1, 2, 3])}></div>
+                  <div onClick={(event) => betOnNumber(event, [1, 2, 3])}></div>
+                  <div onClick={(event) => betOnNumber(event, [1, 2, 3, 4, 5, 6])}></div>
+                  <div onClick={(event) => betOnNumber(event, [4, 5, 6])}></div>
+                  <div onClick={(event) => betOnNumber(event, [4, 5, 6, 7, 8, 9])}></div>
+                  <div onClick={(event) => betOnNumber(event, [7, 8, 9])}></div>
+                  <div onClick={(event) => betOnNumber(event, [7, 8, 9, 10, 11, 12])}></div>
+                  <div onClick={(event) => betOnNumber(event, [10, 11, 12])}></div>
+                  <div onClick={(event) => betOnNumber(event, [10, 11, 12, 13, 14, 15])}></div>
+                  <div onClick={(event) => betOnNumber(event, [13, 14, 15])}></div>
+                  <div onClick={(event) => betOnNumber(event, [13, 14, 15, 16, 17, 18])}></div>
+                  <div onClick={(event) => betOnNumber(event, [16, 17, 18])}></div>
+                  <div onClick={(event) => betOnNumber(event, [16, 17, 18, 19, 20, 21])}></div>
+                  <div onClick={(event) => betOnNumber(event, [19, 20, 21])}></div>
+                  <div onClick={(event) => betOnNumber(event, [19, 20, 21, 22, 23, 24])}></div>
+                  <div onClick={(event) => betOnNumber(event, [22, 23, 24])}></div>
+                  <div onClick={(event) => betOnNumber(event, [22, 23, 24, 25, 26, 27])}></div>
+                  <div onClick={(event) => betOnNumber(event, [25, 26, 27])}></div>
+                  <div onClick={(event) => betOnNumber(event, [25, 26, 27, 28, 29, 30])}></div>
+                  <div onClick={(event) => betOnNumber(event, [28, 29, 30])}></div>
+                  <div onClick={(event) => betOnNumber(event, [28, 29, 30, 31, 32, 33])}></div>
+                  <div onClick={(event) => betOnNumber(event, [31, 32, 33])}></div>
+                  <div onClick={(event) => betOnNumber(event, [31, 32, 33, 34, 35, 36])}></div>
+                  <div onClick={(event) => betOnNumber(event, [34, 35, 36])}></div>
+                </div>
+                <div className="roulette-table-row">
+                  <div onClick={(event) => betOnNumber(event, [0, 3])}></div>
+                  <div onClick={(event) => betOnNumber(event, [3])}></div>
+                  <div onClick={(event) => betOnNumber(event, [3, 6])}></div>
+                  <div onClick={(event) => betOnNumber(event, [6])}></div>
+                  <div onClick={(event) => betOnNumber(event, [6, 9])}></div>
+                  <div onClick={(event) => betOnNumber(event, [9])}></div>
+                  <div onClick={(event) => betOnNumber(event, [9, 12])}></div>
+                  <div onClick={(event) => betOnNumber(event, [12])}></div>
+                  <div onClick={(event) => betOnNumber(event, [12, 15])}></div>
+                  <div onClick={(event) => betOnNumber(event, [15])}></div>
+                  <div onClick={(event) => betOnNumber(event, [15, 18])}></div>
+                  <div onClick={(event) => betOnNumber(event, [18])}></div>
+                  <div onClick={(event) => betOnNumber(event, [18, 21])}></div>
+                  <div onClick={(event) => betOnNumber(event, [21])}></div>
+                  <div onClick={(event) => betOnNumber(event, [21, 24])}></div>
+                  <div onClick={(event) => betOnNumber(event, [24])}></div>
+                  <div onClick={(event) => betOnNumber(event, [24, 27])}></div>
+                  <div onClick={(event) => betOnNumber(event, [27])}></div>
+                  <div onClick={(event) => betOnNumber(event, [27, 30])}></div>
+                  <div onClick={(event) => betOnNumber(event, [30])}></div>
+                  <div onClick={(event) => betOnNumber(event, [30, 33])}></div>
+                  <div onClick={(event) => betOnNumber(event, [33])}></div>
+                  <div onClick={(event) => betOnNumber(event, [33, 36])}></div>
+                  <div onClick={(event) => betOnNumber(event, [36])}></div>
+                </div>
+                <div className="roulette-table-row">
+                  <div onClick={(event) => betOnNumber(event, [0, 2, 3])}></div>
+                  <div onClick={(event) => betOnNumber(event, [2, 3])}></div>
+                  <div onClick={(event) => betOnNumber(event, [2, 3, 5, 6])}></div>
+                  <div onClick={(event) => betOnNumber(event, [5, 6])}></div>
+                  <div onClick={(event) => betOnNumber(event, [5, 6, 8, 9])}></div>
+                  <div onClick={(event) => betOnNumber(event, [8, 9])}></div>
+                  <div onClick={(event) => betOnNumber(event, [8, 9, 11, 12])}></div>
+                  <div onClick={(event) => betOnNumber(event, [11, 12])}></div>
+                  <div onClick={(event) => betOnNumber(event, [11, 12, 14, 15])}></div>
+                  <div onClick={(event) => betOnNumber(event, [14, 15])}></div>
+                  <div onClick={(event) => betOnNumber(event, [14, 15, 17, 18])}></div>
+                  <div onClick={(event) => betOnNumber(event, [17, 18])}></div>
+                  <div onClick={(event) => betOnNumber(event, [17, 18, 20, 21])}></div>
+                  <div onClick={(event) => betOnNumber(event, [20, 21])}></div>
+                  <div onClick={(event) => betOnNumber(event, [20, 21, 23, 24])}></div>
+                  <div onClick={(event) => betOnNumber(event, [23, 24])}></div>
+                  <div onClick={(event) => betOnNumber(event, [23, 24, 26, 27])}></div>
+                  <div onClick={(event) => betOnNumber(event, [26, 27])}></div>
+                  <div onClick={(event) => betOnNumber(event, [26, 27, 29, 30])}></div>
+                  <div onClick={(event) => betOnNumber(event, [29, 30])}></div>
+                  <div onClick={(event) => betOnNumber(event, [29, 30, 32, 33])}></div>
+                  <div onClick={(event) => betOnNumber(event, [32, 33])}></div>
+                  <div onClick={(event) => betOnNumber(event, [32, 33, 35, 36])}></div>
+                  <div onClick={(event) => betOnNumber(event, [35, 36])}></div>
+                </div>
+                <div className="roulette-table-row">
+                  <div onClick={(event) => betOnNumber(event, [0, 2])}></div>
+                  <div onClick={(event) => betOnNumber(event, [2])}></div>
+                  <div onClick={(event) => betOnNumber(event, [2, 5])}></div>
+                  <div onClick={(event) => betOnNumber(event, [5])}></div>
+                  <div onClick={(event) => betOnNumber(event, [5, 8])}></div>
+                  <div onClick={(event) => betOnNumber(event, [8])}></div>
+                  <div onClick={(event) => betOnNumber(event, [8, 11])}></div>
+                  <div onClick={(event) => betOnNumber(event, [11])}></div>
+                  <div onClick={(event) => betOnNumber(event, [11, 14])}></div>
+                  <div onClick={(event) => betOnNumber(event, [14])}></div>
+                  <div onClick={(event) => betOnNumber(event, [14, 17])}></div>
+                  <div onClick={(event) => betOnNumber(event, [17])}></div>
+                  <div onClick={(event) => betOnNumber(event, [17, 20])}></div>
+                  <div onClick={(event) => betOnNumber(event, [20])}></div>
+                  <div onClick={(event) => betOnNumber(event, [20, 23])}></div>
+                  <div onClick={(event) => betOnNumber(event, [23])}></div>
+                  <div onClick={(event) => betOnNumber(event, [23, 26])}></div>
+                  <div onClick={(event) => betOnNumber(event, [26])}></div>
+                  <div onClick={(event) => betOnNumber(event, [26, 29])}></div>
+                  <div onClick={(event) => betOnNumber(event, [29])}></div>
+                  <div onClick={(event) => betOnNumber(event, [29, 32])}></div>
+                  <div onClick={(event) => betOnNumber(event, [32])}></div>
+                  <div onClick={(event) => betOnNumber(event, [32, 35])}></div>
+                  <div onClick={(event) => betOnNumber(event, [35])}></div>
+                </div>
+                <div className="roulette-table-row">
+                  <div onClick={(event) => betOnNumber(event, [0, 2, 1])}></div>
+                  <div onClick={(event) => betOnNumber(event, [1, 2])}></div>
+                  <div onClick={(event) => betOnNumber(event, [1, 2, 4, 5])}></div>
+                  <div onClick={(event) => betOnNumber(event, [4, 5])}></div>
+                  <div onClick={(event) => betOnNumber(event, [4, 5, 7, 8])}></div>
+                  <div onClick={(event) => betOnNumber(event, [7, 8])}></div>
+                  <div onClick={(event) => betOnNumber(event, [7, 8, 10, 11])}></div>
+                  <div onClick={(event) => betOnNumber(event, [10, 11])}></div>
+                  <div onClick={(event) => betOnNumber(event, [10, 11, 13, 14])}></div>
+                  <div onClick={(event) => betOnNumber(event, [13, 14])}></div>
+                  <div onClick={(event) => betOnNumber(event, [13, 14, 16, 17])}></div>
+                  <div onClick={(event) => betOnNumber(event, [16, 17])}></div>
+                  <div onClick={(event) => betOnNumber(event, [16, 17, 19, 20])}></div>
+                  <div onClick={(event) => betOnNumber(event, [19, 20])}></div>
+                  <div onClick={(event) => betOnNumber(event, [19, 20, 22, 23])}></div>
+                  <div onClick={(event) => betOnNumber(event, [22, 23])}></div>
+                  <div onClick={(event) => betOnNumber(event, [22, 23, 25, 26])}></div>
+                  <div onClick={(event) => betOnNumber(event, [25, 26])}></div>
+                  <div onClick={(event) => betOnNumber(event, [25, 26, 28, 29])}></div>
+                  <div onClick={(event) => betOnNumber(event, [28, 29])}></div>
+                  <div onClick={(event) => betOnNumber(event, [28, 29, 31, 32])}></div>
+                  <div onClick={(event) => betOnNumber(event, [31, 32])}></div>
+                  <div onClick={(event) => betOnNumber(event, [31, 32, 34, 35])}></div>
+                  <div onClick={(event) => betOnNumber(event, [34, 35])}></div>
+                </div>
+                <div className="roulette-table-row">
+                  <div onClick={(event) => betOnNumber(event, [0, 1])}></div>
+                  <div onClick={(event) => betOnNumber(event, [1])}></div>
+                  <div onClick={(event) => betOnNumber(event, [1, 4])}></div>
+                  <div onClick={(event) => betOnNumber(event, [4])}></div>
+                  <div onClick={(event) => betOnNumber(event, [4, 7])}></div>
+                  <div onClick={(event) => betOnNumber(event, [7])}></div>
+                  <div onClick={(event) => betOnNumber(event, [7, 10])}></div>
+                  <div onClick={(event) => betOnNumber(event, [10])}></div>
+                  <div onClick={(event) => betOnNumber(event, [10, 13])}></div>
+                  <div onClick={(event) => betOnNumber(event, [13])}></div>
+                  <div onClick={(event) => betOnNumber(event, [13, 16])}></div>
+                  <div onClick={(event) => betOnNumber(event, [16])}></div>
+                  <div onClick={(event) => betOnNumber(event, [16, 19])}></div>
+                  <div onClick={(event) => betOnNumber(event, [19])}></div>
+                  <div onClick={(event) => betOnNumber(event, [19, 22])}></div>
+                  <div onClick={(event) => betOnNumber(event, [22])}></div>
+                  <div onClick={(event) => betOnNumber(event, [22, 25])}></div>
+                  <div onClick={(event) => betOnNumber(event, [25])}></div>
+                  <div onClick={(event) => betOnNumber(event, [25, 28])}></div>
+                  <div onClick={(event) => betOnNumber(event, [28])}></div>
+                  <div onClick={(event) => betOnNumber(event, [28, 31])}></div>
+                  <div onClick={(event) => betOnNumber(event, [31])}></div>
+                  <div onClick={(event) => betOnNumber(event, [31, 34])}></div>
+                  <div onClick={(event) => betOnNumber(event, [34])}></div>
+                </div>
+                <div className="roulette-table-row">
+                  <div onClick={(event) => betOnNumber(event, [0, 1, 2, 3])}></div>
+                  <div onClick={(event) => betOnNumber(event, [1, 2, 3])}></div>
+                  <div onClick={(event) => betOnNumber(event, [1, 2, 3, 4, 5, 6])}></div>
+                  <div onClick={(event) => betOnNumber(event, [4, 5, 6])}></div>
+                  <div onClick={(event) => betOnNumber(event, [4, 5, 6, 7, 8, 9])}></div>
+                  <div onClick={(event) => betOnNumber(event, [7, 8, 9])}></div>
+                  <div onClick={(event) => betOnNumber(event, [7, 8, 9, 10, 11, 12])}></div>
+                  <div onClick={(event) => betOnNumber(event, [10, 11, 12])}></div>
+                  <div onClick={(event) => betOnNumber(event, [10, 11, 12, 13, 14, 15])}></div>
+                  <div onClick={(event) => betOnNumber(event, [13, 14, 15])}></div>
+                  <div onClick={(event) => betOnNumber(event, [13, 14, 15, 16, 17, 18])}></div>
+                  <div onClick={(event) => betOnNumber(event, [16, 17, 18])}></div>
+                  <div onClick={(event) => betOnNumber(event, [16, 17, 18, 19, 20, 21])}></div>
+                  <div onClick={(event) => betOnNumber(event, [19, 20, 21])}></div>
+                  <div onClick={(event) => betOnNumber(event, [19, 20, 21, 22, 23, 24])}></div>
+                  <div onClick={(event) => betOnNumber(event, [22, 23, 24])}></div>
+                  <div onClick={(event) => betOnNumber(event, [22, 23, 24, 25, 26, 27])}></div>
+                  <div onClick={(event) => betOnNumber(event, [25, 26, 27])}></div>
+                  <div onClick={(event) => betOnNumber(event, [25, 26, 27, 28, 29, 30])}></div>
+                  <div onClick={(event) => betOnNumber(event, [28, 29, 30])}></div>
+                  <div onClick={(event) => betOnNumber(event, [28, 29, 30, 31, 32, 33])}></div>
+                  <div onClick={(event) => betOnNumber(event, [31, 32, 33])}></div>
+                  <div onClick={(event) => betOnNumber(event, [31, 32, 33, 34, 35, 36])}></div>
+                  <div onClick={(event) => betOnNumber(event, [34, 35, 36])}></div>
+                </div>
               </div>
-              <div className="roulette-table-row">
-                <div onClick={(event) => betOnNumber(event, [0, 3])}></div>
-                <div onClick={(event) => betOnNumber(event, [3])}></div>
-                <div onClick={(event) => betOnNumber(event, [3, 6])}></div>
-                <div onClick={(event) => betOnNumber(event, [6])}></div>
-                <div onClick={(event) => betOnNumber(event, [6, 9])}></div>
-                <div onClick={(event) => betOnNumber(event, [9])}></div>
-                <div onClick={(event) => betOnNumber(event, [9, 12])}></div>
-                <div onClick={(event) => betOnNumber(event, [12])}></div>
-                <div onClick={(event) => betOnNumber(event, [12, 15])}></div>
-                <div onClick={(event) => betOnNumber(event, [15])}></div>
-                <div onClick={(event) => betOnNumber(event, [15, 18])}></div>
-                <div onClick={(event) => betOnNumber(event, [18])}></div>
-                <div onClick={(event) => betOnNumber(event, [18, 21])}></div>
-                <div onClick={(event) => betOnNumber(event, [21])}></div>
-                <div onClick={(event) => betOnNumber(event, [21, 24])}></div>
-                <div onClick={(event) => betOnNumber(event, [24])}></div>
-                <div onClick={(event) => betOnNumber(event, [24, 27])}></div>
-                <div onClick={(event) => betOnNumber(event, [27])}></div>
-                <div onClick={(event) => betOnNumber(event, [27, 30])}></div>
-                <div onClick={(event) => betOnNumber(event, [30])}></div>
-                <div onClick={(event) => betOnNumber(event, [30, 33])}></div>
-                <div onClick={(event) => betOnNumber(event, [33])}></div>
-                <div onClick={(event) => betOnNumber(event, [33, 36])}></div>
-                <div onClick={(event) => betOnNumber(event, [36])}></div>
-              </div>
-              <div className="roulette-table-row">
-                <div onClick={(event) => betOnNumber(event, [0, 2, 3])}></div>
-                <div onClick={(event) => betOnNumber(event, [2, 3])}></div>
-                <div onClick={(event) => betOnNumber(event, [2, 3, 5, 6])}></div>
-                <div onClick={(event) => betOnNumber(event, [5, 6])}></div>
-                <div onClick={(event) => betOnNumber(event, [5, 6, 8, 9])}></div>
-                <div onClick={(event) => betOnNumber(event, [8, 9])}></div>
-                <div onClick={(event) => betOnNumber(event, [8, 9, 11, 12])}></div>
-                <div onClick={(event) => betOnNumber(event, [11, 12])}></div>
-                <div onClick={(event) => betOnNumber(event, [11, 12, 14, 15])}></div>
-                <div onClick={(event) => betOnNumber(event, [14, 15])}></div>
-                <div onClick={(event) => betOnNumber(event, [14, 15, 17, 18])}></div>
-                <div onClick={(event) => betOnNumber(event, [17, 18])}></div>
-                <div onClick={(event) => betOnNumber(event, [17, 18, 20, 21])}></div>
-                <div onClick={(event) => betOnNumber(event, [20, 21])}></div>
-                <div onClick={(event) => betOnNumber(event, [20, 21, 23, 24])}></div>
-                <div onClick={(event) => betOnNumber(event, [23, 24])}></div>
-                <div onClick={(event) => betOnNumber(event, [23, 24, 26, 27])}></div>
-                <div onClick={(event) => betOnNumber(event, [26, 27])}></div>
-                <div onClick={(event) => betOnNumber(event, [26, 27, 29, 30])}></div>
-                <div onClick={(event) => betOnNumber(event, [29, 30])}></div>
-                <div onClick={(event) => betOnNumber(event, [29, 30, 32, 33])}></div>
-                <div onClick={(event) => betOnNumber(event, [32, 33])}></div>
-                <div onClick={(event) => betOnNumber(event, [32, 33, 35, 36])}></div>
-                <div onClick={(event) => betOnNumber(event, [35, 36])}></div>
-              </div>
-              <div className="roulette-table-row">
-                <div onClick={(event) => betOnNumber(event, [0, 2])}></div>
-                <div onClick={(event) => betOnNumber(event, [2])}></div>
-                <div onClick={(event) => betOnNumber(event, [2, 5])}></div>
-                <div onClick={(event) => betOnNumber(event, [5])}></div>
-                <div onClick={(event) => betOnNumber(event, [5, 8])}></div>
-                <div onClick={(event) => betOnNumber(event, [8])}></div>
-                <div onClick={(event) => betOnNumber(event, [8, 11])}></div>
-                <div onClick={(event) => betOnNumber(event, [11])}></div>
-                <div onClick={(event) => betOnNumber(event, [11, 14])}></div>
-                <div onClick={(event) => betOnNumber(event, [14])}></div>
-                <div onClick={(event) => betOnNumber(event, [14, 17])}></div>
-                <div onClick={(event) => betOnNumber(event, [17])}></div>
-                <div onClick={(event) => betOnNumber(event, [17, 20])}></div>
-                <div onClick={(event) => betOnNumber(event, [20])}></div>
-                <div onClick={(event) => betOnNumber(event, [20, 23])}></div>
-                <div onClick={(event) => betOnNumber(event, [23])}></div>
-                <div onClick={(event) => betOnNumber(event, [23, 26])}></div>
-                <div onClick={(event) => betOnNumber(event, [26])}></div>
-                <div onClick={(event) => betOnNumber(event, [26, 29])}></div>
-                <div onClick={(event) => betOnNumber(event, [29])}></div>
-                <div onClick={(event) => betOnNumber(event, [29, 32])}></div>
-                <div onClick={(event) => betOnNumber(event, [32])}></div>
-                <div onClick={(event) => betOnNumber(event, [32, 35])}></div>
-                <div onClick={(event) => betOnNumber(event, [35])}></div>
-              </div>
-              <div className="roulette-table-row">
-                <div onClick={(event) => betOnNumber(event, [0, 2, 1])}></div>
-                <div onClick={(event) => betOnNumber(event, [1, 2])}></div>
-                <div onClick={(event) => betOnNumber(event, [1, 2, 4, 5])}></div>
-                <div onClick={(event) => betOnNumber(event, [4, 5])}></div>
-                <div onClick={(event) => betOnNumber(event, [4, 5, 7, 8])}></div>
-                <div onClick={(event) => betOnNumber(event, [7, 8])}></div>
-                <div onClick={(event) => betOnNumber(event, [7, 8, 10, 11])}></div>
-                <div onClick={(event) => betOnNumber(event, [10, 11])}></div>
-                <div onClick={(event) => betOnNumber(event, [10, 11, 13, 14])}></div>
-                <div onClick={(event) => betOnNumber(event, [13, 14])}></div>
-                <div onClick={(event) => betOnNumber(event, [13, 14, 16, 17])}></div>
-                <div onClick={(event) => betOnNumber(event, [16, 17])}></div>
-                <div onClick={(event) => betOnNumber(event, [16, 17, 19, 20])}></div>
-                <div onClick={(event) => betOnNumber(event, [19, 20])}></div>
-                <div onClick={(event) => betOnNumber(event, [19, 20, 22, 23])}></div>
-                <div onClick={(event) => betOnNumber(event, [22, 23])}></div>
-                <div onClick={(event) => betOnNumber(event, [22, 23, 25, 26])}></div>
-                <div onClick={(event) => betOnNumber(event, [25, 26])}></div>
-                <div onClick={(event) => betOnNumber(event, [25, 26, 28, 29])}></div>
-                <div onClick={(event) => betOnNumber(event, [28, 29])}></div>
-                <div onClick={(event) => betOnNumber(event, [28, 29, 31, 32])}></div>
-                <div onClick={(event) => betOnNumber(event, [31, 32])}></div>
-                <div onClick={(event) => betOnNumber(event, [31, 32, 34, 35])}></div>
-                <div onClick={(event) => betOnNumber(event, [34, 35])}></div>
-              </div>
-              <div className="roulette-table-row">
-                <div onClick={(event) => betOnNumber(event, [0, 1])}></div>
-                <div onClick={(event) => betOnNumber(event, [1])}></div>
-                <div onClick={(event) => betOnNumber(event, [1, 4])}></div>
-                <div onClick={(event) => betOnNumber(event, [4])}></div>
-                <div onClick={(event) => betOnNumber(event, [4, 7])}></div>
-                <div onClick={(event) => betOnNumber(event, [7])}></div>
-                <div onClick={(event) => betOnNumber(event, [7, 10])}></div>
-                <div onClick={(event) => betOnNumber(event, [10])}></div>
-                <div onClick={(event) => betOnNumber(event, [10, 13])}></div>
-                <div onClick={(event) => betOnNumber(event, [13])}></div>
-                <div onClick={(event) => betOnNumber(event, [13, 16])}></div>
-                <div onClick={(event) => betOnNumber(event, [16])}></div>
-                <div onClick={(event) => betOnNumber(event, [16, 19])}></div>
-                <div onClick={(event) => betOnNumber(event, [19])}></div>
-                <div onClick={(event) => betOnNumber(event, [19, 22])}></div>
-                <div onClick={(event) => betOnNumber(event, [22])}></div>
-                <div onClick={(event) => betOnNumber(event, [22, 25])}></div>
-                <div onClick={(event) => betOnNumber(event, [25])}></div>
-                <div onClick={(event) => betOnNumber(event, [25, 28])}></div>
-                <div onClick={(event) => betOnNumber(event, [28])}></div>
-                <div onClick={(event) => betOnNumber(event, [28, 31])}></div>
-                <div onClick={(event) => betOnNumber(event, [31])}></div>
-                <div onClick={(event) => betOnNumber(event, [31, 34])}></div>
-                <div onClick={(event) => betOnNumber(event, [34])}></div>
-              </div>
-              <div className="roulette-table-row">
-                <div onClick={(event) => betOnNumber(event, [0, 1, 2, 3])}></div>
-                <div onClick={(event) => betOnNumber(event, [1, 2, 3])}></div>
-                <div onClick={(event) => betOnNumber(event, [1, 2, 3, 4, 5, 6])}></div>
-                <div onClick={(event) => betOnNumber(event, [4, 5, 6])}></div>
-                <div onClick={(event) => betOnNumber(event, [4, 5, 6, 7, 8, 9])}></div>
-                <div onClick={(event) => betOnNumber(event, [7, 8, 9])}></div>
-                <div onClick={(event) => betOnNumber(event, [7, 8, 9, 10, 11, 12])}></div>
-                <div onClick={(event) => betOnNumber(event, [10, 11, 12])}></div>
-                <div onClick={(event) => betOnNumber(event, [10, 11, 12, 13, 14, 15])}></div>
-                <div onClick={(event) => betOnNumber(event, [13, 14, 15])}></div>
-                <div onClick={(event) => betOnNumber(event, [13, 14, 15, 16, 17, 18])}></div>
-                <div onClick={(event) => betOnNumber(event, [16, 17, 18])}></div>
-                <div onClick={(event) => betOnNumber(event, [16, 17, 18, 19, 20, 21])}></div>
-                <div onClick={(event) => betOnNumber(event, [19, 20, 21])}></div>
-                <div onClick={(event) => betOnNumber(event, [19, 20, 21, 22, 23, 24])}></div>
-                <div onClick={(event) => betOnNumber(event, [22, 23, 24])}></div>
-                <div onClick={(event) => betOnNumber(event, [22, 23, 24, 25, 26, 27])}></div>
-                <div onClick={(event) => betOnNumber(event, [25, 26, 27])}></div>
-                <div onClick={(event) => betOnNumber(event, [25, 26, 27, 28, 29, 30])}></div>
-                <div onClick={(event) => betOnNumber(event, [28, 29, 30])}></div>
-                <div onClick={(event) => betOnNumber(event, [28, 29, 30, 31, 32, 33])}></div>
-                <div onClick={(event) => betOnNumber(event, [31, 32, 33])}></div>
-                <div onClick={(event) => betOnNumber(event, [31, 32, 33, 34, 35, 36])}></div>
-                <div onClick={(event) => betOnNumber(event, [34, 35, 36])}></div>
+              <div className="roulette-table-row-lower">
+                <div className="roulette-table-row-thirds">
+                  <div onClick={(event) => betOnNumber(event, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])}></div>
+                  <div onClick={(event) => betOnNumber(event, [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24])}></div>
+                  <div onClick={(event) => betOnNumber(event, [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36])}></div>
+                </div>
+                <div className="roulette-table-row-thirdHalves">
+                  <div onClick={(event) => betOnNumber(event, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18])}></div>
+                  <div onClick={(event) => betOnNumber(event, [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36])}></div>
+                  <div onClick={(event) => betOnNumber(event, [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35])}></div>
+                  <div onClick={(event) => betOnNumber(event, [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36])}></div>
+                  <div onClick={(event) => betOnNumber(event, [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35])}></div>
+                  <div onClick={(event) => betOnNumber(event, [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36])}></div>
+                </div>
               </div>
             </div>
-            <div className="roulette-table-row-lower">
-              <div className="roulette-table-row-thirds">
-                <div onClick={(event) => betOnNumber(event, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])}></div>
-                <div onClick={(event) => betOnNumber(event, [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24])}></div>
-                <div onClick={(event) => betOnNumber(event, [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36])}></div>
-              </div>
-              <div className="roulette-table-row-thirdHalves">
-                <div onClick={(event) => betOnNumber(event, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18])}></div>
-                <div onClick={(event) => betOnNumber(event, [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36])}></div>
-                <div onClick={(event) => betOnNumber(event, [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35])}></div>
-                <div onClick={(event) => betOnNumber(event, [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36])}></div>
-                <div onClick={(event) => betOnNumber(event, [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35])}></div>
-                <div onClick={(event) => betOnNumber(event, [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36])}></div>
-              </div>
+            <div className="ending-col">
+              <div onClick={(event) => betOnNumber(event, [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36])}></div>
+              <div onClick={(event) => betOnNumber(event, [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35])}></div>
+              <div onClick={(event) => betOnNumber(event, [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34])}></div>
             </div>
           </div>
-          <div className="ending-col">
-            <div onClick={(event) => betOnNumber(event, [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36])}></div>
-            <div onClick={(event) => betOnNumber(event, [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35])}></div>
-            <div onClick={(event) => betOnNumber(event, [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34])}></div>
-          </div>
+          <button className="reset-bets" onClick={removeBets}></button>
         </div>
-        <button className="reset-bets" onClick={removeBets}></button>
       </div>
       <div className="roulette-footer">
         <div className="footer-element-wrapper">
