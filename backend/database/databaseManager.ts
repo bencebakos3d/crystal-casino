@@ -6,6 +6,8 @@ import config from '../config';
 var mysql = require('mysql');
 
 class SQLManager {
+
+  // sql queryket átirni sql fájlokba
   private connection = mysql.createConnection({
     host: config.mysql.host,
     user: config.mysql.user,
@@ -49,6 +51,17 @@ class SQLManager {
     return gamer;
   }
 
+  public async queryRecordById(id:string){
+
+  }
+
+  public async ifExistById(id:string){
+
+  }
+  public async queryByBalanceDesc(value:number){
+
+  }
+
   private insertRecord(id: string, balance: string, username: string, lastLogin: string) {
     let commandInsert: string = 'INSERT INTO users(SessionID, Balance, Username, LastVisit) ';
     let commandValues: string = 'VALUES (' + '"' + id + '", "' + balance + '", "' + username + '", NOW());';
@@ -57,6 +70,7 @@ class SQLManager {
       if (err) throw err;
     });
   }
+
 
   private updateRecord(id: string, balance: string, name: string) {
     let commandUpdate = 'UPDATE users ';
