@@ -12,6 +12,7 @@ export default function RouletteGame() {
   const [activeChip, setActiveChip] = useState('boxShadow: 0px 0px 5px 3px white;');
   const [balance, setBalance] = useState(2000);
   const [showWinning, setShowWinning] = useState(false);
+  const [prize, setPrize] = useState(0);
   const animationDuration = 5000;
 
   const url = 'http://localhost:3001/api';
@@ -61,9 +62,9 @@ export default function RouletteGame() {
     console.log('betting ' + value);
   };
   const RouletteFields = [0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33, 1, 20, 14, 31, 9, 22, 18, 29, 7, 28, 12, 35, 3, 26];
-  //
+
   // Sends chosen numbers and bets to the backend, returns the random number and the amount of money the player has
-  //
+
   function handleSpin(): void {
     if (allBets.length > 0 && allNumbers.length > 0) {
       setTimeout(() => {
@@ -87,6 +88,7 @@ export default function RouletteGame() {
           let returnedNumber = parseInt(data.winnerNumber);
           let userBalance = data.balance;
           let prize = data.prize;
+          setPrize(prize);
           setBalance(userBalance);
 
           for (let i = 0; i < RouletteFields.length; i++) {
@@ -121,10 +123,12 @@ export default function RouletteGame() {
   }
   function invalidSpin(): void {}
 
+  // Winning screen animation
+
   const WinningScreen = () => (
-    <div className="winning-screen" onClick={() => setShowWinning(false)}>
+    <div className="winning-screen " onClick={() => setShowWinning(false)}>
       <h1>WINNER!</h1>
-      <h2>+ $ 2000</h2>
+      <h2>+ $ {prize}</h2>
       <p>Click to continue</p>
       <video preload="auto" autoPlay muted loop id="myVideo">
         <source src={winningVideo} type="video/mp4" />

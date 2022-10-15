@@ -47,7 +47,10 @@
   justify-content: center;
   flex-direction: column;
   cursor: pointer;
+  transition: opacity 0.5s ease-out;
+  opacity: 1;
 }
+
 .winning-screen > h1,
 .winning-screen > h2,
 .winning-screen > p {

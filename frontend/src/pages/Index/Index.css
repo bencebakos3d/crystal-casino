@@ -7,18 +7,6 @@
   top: 0;
   left: 0;
 }
-.divider {
-  content: ' ';
-  height: 50px;
-  width: 2px;
-  background-color: #ffffff;
-  margin-right: 30px;
-}
-.experience-wrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
 .textbox {
   z-index: 2;
   position: relative;

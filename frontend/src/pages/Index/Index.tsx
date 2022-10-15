@@ -10,12 +10,11 @@ export default function Index() {
     <div className="index-wrapper">
       <img src={bgImg} alt="Diamond Casino" className="bg-img" />
       <div className="textbox">
-        <div className="experience-wrapper">
-          <div className="divider"></div>
-          <h2>EXPERIENCE EXCELLENCE</h2>
-        </div>
-        <h1>A LUXURY CASINO & RESORT IN THE HEART OF VINEWOOD</h1>
-        <p>You've heard the rumors. You want to believe them, and there's only one way to find out. Abandon your preconceptions. Let go of your inhibitions, your doubts, your sense of proportion, vour credit rating. The rumors didn't begin to do it justice. Welcome to The Diamond. Grand Opening July 23.</p>
+        <h1>MAKE YOUR DREAMS COME TRUE. RIGHT NOW.</h1>
+        <p>
+          Do you have the courage to put all your savings on the black 22? Or maybe on the red 36? Your choice. You can change your whole life with just a few clicks. <br />
+          Welcome to The Crystal.
+        </p>
       </div>
     </div>
   );
