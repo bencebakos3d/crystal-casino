@@ -3,6 +3,7 @@ import './RouletteGame.modules.css';
 import rouletteWheelImg from './images/roulette-wheel.png';
 import rouletteBallImg from './images/roulette-ball.png';
 import { useState, useRef } from 'react';
+import winningVideo from './video/falling_coins.mp4';
 
 export default function RouletteGame() {
   const [allNumbers, setAllNumbers] = useState<number[][]>([]);
@@ -10,7 +11,8 @@ export default function RouletteGame() {
   const [value, setValue] = useState(1);
   const [activeChip, setActiveChip] = useState('boxShadow: 0px 0px 5px 3px white;');
   const [balance, setBalance] = useState(2000);
-  const animationDuration = 3000;
+  const [showWinning, setShowWinning] = useState(false);
+  const animationDuration = 5000;
 
   const url = 'http://localhost:3001/api';
   //
@@ -26,7 +28,7 @@ export default function RouletteGame() {
     wheel.style.transitionProperty = 'all';
 
     ball.style.transform = 'rotate(' + (angle + 720) + 'deg)';
-    ball.style.transition = `transform 3000ms, opacity 300ms`;
+    ball.style.transition = `transform 5000ms, opacity 300ms`;
     ball.style.opacity = '1';
 
     wheel.style.transform = 'rotate(-720deg)';
@@ -41,7 +43,7 @@ export default function RouletteGame() {
       ball.style.transform = 'rotate(0deg)';
       ball.style.transition = 'transform 0ms, opcaity 0ms';
       ball.style.opacity = '0';
-    }, 5000);
+    }, 7000);
   }
 
   const betOnNumber = (event: React.SyntheticEvent, arr: number[]) => {
@@ -84,12 +86,18 @@ export default function RouletteGame() {
         .then((data) => {
           let returnedNumber = parseInt(data.winnerNumber);
           let userBalance = data.balance;
+          let prize = data.prize;
           setBalance(userBalance);
 
           for (let i = 0; i < RouletteFields.length; i++) {
             if (returnedNumber == RouletteFields[i]) {
               let rouletteAngle = 10 * i - 5;
               spinRoulette(rouletteAngle);
+              setTimeout(() => {
+                if (prize > 0) {
+                  setShowWinning(true);
+                }
+              }, animationDuration + 700);
             }
           }
           console.log(data);
@@ -113,6 +121,17 @@ export default function RouletteGame() {
   }
   function invalidSpin(): void {}
 
+  const WinningScreen = () => (
+    <div className="winning-screen" onClick={() => setShowWinning(false)}>
+      <h1>WINNER!</h1>
+      <h2>+ $ 2000</h2>
+      <p>Click to continue</p>
+      <video preload="auto" autoPlay muted loop id="myVideo">
+        <source src={winningVideo} type="video/mp4" />
+      </video>
+    </div>
+  );
+
   return (
     <div className="main-wrapper">
       <div className="mobile-unable">
@@ -121,6 +140,8 @@ export default function RouletteGame() {
       </div>
       <div className="roulette-table-border">
         <div className="roulette-table-wrapper">
+          {showWinning ? <WinningScreen /> : null}
+
           <div className="roulette-wheel-wrapper">
             <img src={rouletteWheelImg} alt="" className="roulette-wheel" id="rouletteWheel" />
             <img src={rouletteBallImg} alt="" className="roulette-ball" id="rouletteBall" style={{ opacity: 0 }} />
