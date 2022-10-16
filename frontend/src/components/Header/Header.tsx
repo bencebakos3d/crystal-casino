@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import './Header.modules.css';
-import headerImg from './images/diamond-logo.png';
+import headerImg from './images/crystal-logo.png';
 
 export default function Header() {
   const { pathname } = useLocation();
