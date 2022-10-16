@@ -1,6 +1,6 @@
 import React from 'react';
 import './Index.css';
-import bgImg from './images/diamond-bg.png';
+import bgImg from './images/crystal-bg.jpg';
 
 export default function Index() {
   // Ide jon a useState es useEffect kod meg mindenfele valtozo
@@ -8,7 +8,7 @@ export default function Index() {
 
   return (
     <div className="index-wrapper">
-      <img src={bgImg} alt="Diamond Casino" className="bg-img" />
+      <img src={bgImg} alt="The Crystal" className="bg-img" />
       <div className="textbox">
         <h1>MAKE YOUR DREAMS COME TRUE. RIGHT NOW.</h1>
         <p>
