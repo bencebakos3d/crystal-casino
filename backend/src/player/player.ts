@@ -1,6 +1,12 @@
 import { dbHandler } from "../../database/databaseManager";
 
+/*Constant values START*/
+export const DEFAULTNAME:string ="Default";
+export const DEFAULTBALANCE:number = 2000;
+/*Constant values END*/
+
 export class Player{
+
     private sessionId:string;
     private userName:string;
     private balance:number;
@@ -17,9 +23,10 @@ export class Player{
 
     async syncFromDB(){
         //kijavtiani a konkurenciát NAGYON NEM JÓ
-        let temporary = await dbHandler.queryPlayer(this.sessionId);
-        this.setBlanace(temporary.getBalance());
-        this.setUsername(temporary.getUserName());
+        let temporary = await dbHandler.queryRecordById(this.sessionId);
+        this.setBlanace(temporary.Balance);
+        this.setUsername(temporary.UserName);
+        this.sessionId = temporary.SessionID;
     }
 
     public getNumbers(){
