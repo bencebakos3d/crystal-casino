@@ -15,7 +15,7 @@ export default function RouletteGame() {
   const [prize, setPrize] = useState(0);
   const animationDuration = 5000;
 
-  const url = process.env.API_URL;
+  const url = process.env.URL;
   // || 'http://localhost:3001';
   //
   // Spins roulette wheel and ball
@@ -67,6 +67,7 @@ export default function RouletteGame() {
   // Sends chosen numbers and bets to the backend, returns the random number and the amount of money the player has
 
   function handleSpin(): void {
+    console.log('fetching ' + url);
     if (allBets.length > 0 && allNumbers.length > 0) {
       setTimeout(() => {
         removeBets();
