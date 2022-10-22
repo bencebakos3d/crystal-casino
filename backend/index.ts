@@ -12,12 +12,12 @@ const url = process.env.API_URL;
 // || 'http://localhost:3000';
 export const app = express();
 
-app.use(
-  cors({
-    origin: url,
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: url,
+//     credentials: true,
+//   })
+// );
 app.use(express.json());
 app.use(cookieParser());
 
