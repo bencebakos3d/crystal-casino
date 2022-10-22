@@ -7,11 +7,12 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 
 const PORT = process.env.port || 3001;
+const url = process.env.API_URL || 'http://localhost:3000';
 export const app = express();
 
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: url,
     credentials: true,
   })
 );
