@@ -28,16 +28,16 @@ let time = 1 * 60 * 1000;
 setInterval(function () {
   dbHandler.clearExpiredRecord();
 }, time);
-app.get('/setcookie', async (req: any, res: any) => {
+app.get('/api/setcookie', async (req: any, res: any) => {
   await dbHandler.queryPlayer(req.session.id); //irni contains függvényt a dbbe
   res.cookie(`SessionID`, req.session.id);
   res.send('Cookie have been saved successfully');
 });
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 app.get('/', function (req: any, res: any) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
 });
 
 app.listen(9000);
