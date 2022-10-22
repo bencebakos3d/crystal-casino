@@ -15,7 +15,7 @@ export default function RouletteGame() {
   const [prize, setPrize] = useState(0);
   const animationDuration = 5000;
 
-  const url = process.env.URL || 'http://localhost:3001';
+  const url = process.env.API_URL || 'http://localhost:3001';
   //
   // Spins roulette wheel and ball
   //
@@ -72,7 +72,7 @@ export default function RouletteGame() {
       }, animationDuration + 500);
       setAllNumbers([]);
       setAllBets([]);
-      fetch(`/api/spinRoulette`, {
+      fetch(`${url}/api/spinRoulette`, {
         credentials: 'include',
         method: 'POST',
         headers: {
