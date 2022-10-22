@@ -26,6 +26,6 @@
   },
   "devDependencies": {
     "@types/express-session": "^1.17.5",
-    "@types/node": "^18.7.16"
+    "@types/node": "^18.11.3"
   }
 }
