@@ -15,7 +15,8 @@ export default function RouletteGame() {
   const [prize, setPrize] = useState(0);
   const animationDuration = 5000;
 
-  const url = process.env.API_URL || 'http://localhost:3001';
+  const url = process.env.API_URL;
+  // || 'http://localhost:3001';
   //
   // Spins roulette wheel and ball
   //

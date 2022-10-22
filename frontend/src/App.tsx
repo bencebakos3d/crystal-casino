@@ -9,7 +9,8 @@ import Slots from './pages/Slots/Slots';
 import Blackjack from './pages/Blackjack/Blackjack';
 
 function App() {
-  const url = process.env.API_URL || 'http://localhost:3001';
+  const url = process.env.API_URL;
+  // || 'http://localhost:3001';
 
   if (!document.cookie.match('SessionID')) {
     console.log('You got a nice cookie ');
