@@ -2,7 +2,7 @@ const cors = require('cors');
 import { setUpRouletteRoutes } from './routes/rouletteRouter';
 import { initSessions, setUpSessionHandlers } from './sessions/session';
 import { dbHandler } from './database/databaseManager';
-// const path = require('path');
+const path = require('path');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 
@@ -35,11 +35,13 @@ app.get('/api/setcookie', async (req: any, res: any) => {
   res.send('Cookie have been saved successfully');
 });
 
-// app.use(express.static(path.join(__dirname, '../frontend/build')));
-
-// app.get('/', function (req: any, res: any) {
-//   res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
-// });
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../frontend/build')));
+  app.get('/', function (req: any, res: any) {
+    res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+  });
+  console.log('sending frontend');
+}
 
 app.listen(9000);
 
