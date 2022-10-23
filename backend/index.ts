@@ -12,12 +12,12 @@ const url = process.env.URL;
 // || 'http://localhost:3000';
 export const app = express();
 
-// app.use(
-//   cors({
-//     origin: url,
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    origin: url,
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(cookieParser());
 
@@ -37,13 +37,13 @@ app.get('/api/setcookie', async (req: any, res: any) => {
   res.send('Cookie have been saved successfully');
 });
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../frontend/build')));
-  app.get('/', function (req: any, res: any) {
-    res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
-  });
-  console.log('sending frontend');
-}
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(express.static(path.join(__dirname, '../frontend/build')));
+//   app.get('/', function (req: any, res: any) {
+//     res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+//   });
+//   console.log('sending frontend');
+// }
 
 app.listen(9000);
 
