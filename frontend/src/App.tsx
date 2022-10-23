@@ -9,7 +9,7 @@ import Slots from './pages/Slots/Slots';
 import Blackjack from './pages/Blackjack/Blackjack';
 
 function App() {
-  const url = 'https://casino-s2oy.onrender.com';
+  const url = process.env.URL;
   // || 'http://localhost:3001';
 
   if (!document.cookie.match('SessionID')) {

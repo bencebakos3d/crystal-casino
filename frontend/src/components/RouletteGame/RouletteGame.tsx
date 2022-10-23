@@ -15,7 +15,7 @@ export default function RouletteGame() {
   const [prize, setPrize] = useState(0);
   const animationDuration = 5000;
 
-  const url = 'https://casino-s2oy.onrender.com';
+  const url = process.env.URL;
   // || 'http://localhost:3001';
   //
   // Spins roulette wheel and ball
