@@ -1,8 +1,5 @@
-import { response } from 'express';
-import { resolve } from 'path';
 import { Player, DEFAULTBALANCE, DEFAULTNAME } from '../src/player/player';
 import config from '../config';
-import { Console } from 'console';
 
 var mysql = require('mysql');
 
@@ -30,8 +27,9 @@ class SQLManager {
   }
 
   public async queryRecordById(id:string){
+    //id 
     let queryObject = new Promise((resolve) => {
-      this.connection.query('SELECT * FROM users WHERE SessionID LIKE "' + id + '";', (error: any, response: any) => {
+      this.connection.query("SELECT * FROM users WHERE SessionID LIKE  ?;",[id],(error: any, response: any) => {
         if (error) throw error;
         if (response.length == 0) {
           this.insertRecord(id,DEFAULTBALANCE.toString(),DEFAULTNAME);
@@ -62,13 +60,6 @@ class SQLManager {
     //return await queryObject.then((val:any)=>{return val});
   }
 
-  public async ifExistById(id:string){
-
-  }
-  public async queryByBalanceDesc(value:number){
-
-  }
-
   public clearExpiredRecord(){
     console.log("Expired records deleted!");
     this.connection.query("DELETE FROM users WHERE LastVisit <= DATE_SUB(NOW(), INTERVAL 1 DAY);", (error: any, response: any) =>{
@@ -77,21 +68,14 @@ class SQLManager {
   }
 
   private insertRecord(id: string, balance: string, username: string) {
-    let commandInsert: string = 'INSERT INTO users(SessionID, Balance, Username, LastVisit) ';
-    let commandValues: string = 'VALUES (' + '"' + id + '", "' + balance + '", "' + username + '", NOW());';
-    let commandFull: string = commandInsert + commandValues;
-    this.connection.query(commandFull, (err: any) => {
+    this.connection.query("INSERT INTO users(SessionID, Balance, Username, LastVisit) VALUES (?, ?, ?, NOW());", [id,balance,username],(err: any) => {
       if (err) throw err;
     });
   }
 
 
   private updateRecord(id: string, balance: string, name: string) {
-    let commandUpdate = 'UPDATE users ';
-    let commandSet = 'SET SessionID=' + '"' + id + '", Balance=' + '"' + balance + '", Username=' + '"' + name + '", LastVisit=NOW()';
-    let commandWhere = ' WHERE SessionID LIKE "' + id + '";';
-    let commandFull = commandUpdate + commandSet + commandWhere;
-    this.connection.query(commandFull, (err: any) => {
+    this.connection.query("UPDATE users SET SessionID= ?, Balance= ?, Username=?, LastVisit=NOW() WHERE SessionID LIKE  ?;",[id,balance,name,id], (err: any) => {
       if (err) throw err;
     });
   }

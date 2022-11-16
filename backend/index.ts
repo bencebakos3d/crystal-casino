@@ -23,7 +23,8 @@ app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
 
-let time = (1*60)*1000;
+//timeot berakni környezeti változoba 
+let time = (1000*60)*60*24;
 setInterval(function(){dbHandler.clearExpiredRecord()},time)
 app.get('/setcookie',async (req: any, res: any) => {
   await dbHandler.queryPlayer(req.session.id); //irni contains függvényt a dbbe
