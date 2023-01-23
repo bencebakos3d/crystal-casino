@@ -15,7 +15,8 @@ export default function RouletteGame() {
   const [prize, setPrize] = useState(0);
   const animationDuration = 5000;
 
-  const url = 'http://localhost:3001/api';
+  const url = 'https://casino-s2oy.onrender.com';
+  // || 'http://localhost:3001';
   //
   // Spins roulette wheel and ball
   //
@@ -66,13 +67,14 @@ export default function RouletteGame() {
   // Sends chosen numbers and bets to the backend, returns the random number and the amount of money the player has
 
   function handleSpin(): void {
+    console.log('fetching ' + url);
     if (allBets.length > 0 && allNumbers.length > 0) {
       setTimeout(() => {
         removeBets();
       }, animationDuration + 500);
       setAllNumbers([]);
       setAllBets([]);
-      fetch(`${url}/spinRoulette`, {
+      fetch(`${url}/api/spinRoulette`, {
         credentials: 'include',
         method: 'POST',
         headers: {

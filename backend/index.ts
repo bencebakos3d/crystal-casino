@@ -2,15 +2,19 @@ const cors = require('cors');
 import { setUpRouletteRoutes } from './routes/rouletteRouter';
 import { initSessions, setUpSessionHandlers } from './sessions/session';
 import { dbHandler } from './database/databaseManager';
-
+const path = require('path');
 const express = require('express');
 const cookieParser = require('cookie-parser');
-const PORT = process.env.port || 3001;
+
+const PORT = process.env.port;
+// || 3001;
+const url = process.env.URL;
+// || 'http://localhost:3000';
 export const app = express();
 
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: url,
     credentials: true,
   })
 );
@@ -32,8 +36,15 @@ app.get('/setcookie',async (req: any, res: any) => {
   res.send('Cookie have been saved successfully');
 });
 
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(express.static(path.join(__dirname, '../frontend/build')));
+//   app.get('/', function (req: any, res: any) {
+//     res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+//   });
+//   console.log('sending frontend');
+// }
 
+app.listen(9000);
 
 setUpSessionHandlers();
 setUpRouletteRoutes();
-
