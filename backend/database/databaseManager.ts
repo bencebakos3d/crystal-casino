@@ -1,11 +1,24 @@
-import { response } from 'express';
-import { resolve } from 'path';
-import { Player, DEFAULTBALANCE, DEFAULTNAME } from '../src/player/player';
+import { Player} from '../src/player/player';
 import config from '../config';
-import { Console } from 'console';
 
 var mysql = require('mysql');
 
+/*
+The SQLManager class is used to instantiate the dbHandler global object,which
+is used by many functions, the goal of this object to handle I/O to the database.
+
+--------------------------------------------------------------------------------
+queryPlayer(id):
+PARAMETER: id -> session id of the player
+RETURN VALUE: An instance of the Player class, containing the queried data,
+if the player doesent exist, this function call going to create it.
+
+--------------------------------------------------------------------------------
+
+queryRecordById(id)
+PARAMETERS: id-> session id of the player
+RETURN VALUE: a result object containing the record fields:(SessionID,Balance,UserName,LastVisit)
+*/
 class SQLManager {
   private connection = mysql.createConnection({
     host: config.mysql.host,
@@ -20,9 +33,8 @@ class SQLManager {
   }
 
   async queryPlayer(id: string) {
-    let gamer = new Player([], [], id, DEFAULTNAME);
+    let gamer = new Player([], [], id,config.defaultValues.defaultUsername);
     let result =  await this.queryRecordById(id);
-    //if(result.SessionID !== id)throw "ids not matching";
     gamer.setSessionID(result.SessionID);
     gamer.setBlanace(result.Balance);
     gamer.setUsername(result.UserName);
@@ -30,16 +42,17 @@ class SQLManager {
   }
 
   public async queryRecordById(id:string){
+    //id 
     let queryObject = new Promise((resolve) => {
-      this.connection.query('SELECT * FROM users WHERE SessionID LIKE "' + id + '";', (error: any, response: any) => {
+      this.connection.query("SELECT * FROM users WHERE SessionID LIKE  ?;",[id],(error: any, response: any) => {
         if (error) throw error;
         if (response.length == 0) {
-          this.insertRecord(id,DEFAULTBALANCE.toString(),DEFAULTNAME);
+          this.insertRecord(id,config.defaultValues.defaultBalance,config.defaultValues.defaultUsername);
 
           let result = {
             SesssionID: id,
-            Balance: DEFAULTBALANCE,
-            UserName: DEFAULTNAME,
+            Balance: config.defaultValues.defaultBalance,
+            UserName: config.defaultValues.defaultUsername,
             LastVisit: new Date(Date.now()).toLocaleString()
           };
           resolve(result); 
@@ -57,16 +70,7 @@ class SQLManager {
     });
 
     let x = await queryObject.then((val:any)=>{return val});
-    //console.log(x);
     return x;
-    //return await queryObject.then((val:any)=>{return val});
-  }
-
-  public async ifExistById(id:string){
-
-  }
-  public async queryByBalanceDesc(value:number){
-
   }
 
   public clearExpiredRecord(){
@@ -76,22 +80,15 @@ class SQLManager {
     });
   }
 
-  private insertRecord(id: string, balance: string, username: string) {
-    let commandInsert: string = 'INSERT INTO users(SessionID, Balance, Username, LastVisit) ';
-    let commandValues: string = 'VALUES (' + '"' + id + '", "' + balance + '", "' + username + '", NOW());';
-    let commandFull: string = commandInsert + commandValues;
-    this.connection.query(commandFull, (err: any) => {
+  private insertRecord(id: any, balance: any, username: any) {
+    this.connection.query("INSERT INTO users(SessionID, Balance, Username, LastVisit) VALUES (?, ?, ?, NOW());", [id,balance,username],(err: any) => {
       if (err) throw err;
     });
   }
 
 
   private updateRecord(id: string, balance: string, name: string) {
-    let commandUpdate = 'UPDATE users ';
-    let commandSet = 'SET SessionID=' + '"' + id + '", Balance=' + '"' + balance + '", Username=' + '"' + name + '", LastVisit=NOW()';
-    let commandWhere = ' WHERE SessionID LIKE "' + id + '";';
-    let commandFull = commandUpdate + commandSet + commandWhere;
-    this.connection.query(commandFull, (err: any) => {
+    this.connection.query("UPDATE users SET SessionID= ?, Balance= ?, Username=?, LastVisit=NOW() WHERE SessionID LIKE  ?;",[id,balance,name,id], (err: any) => {
       if (err) throw err;
     });
   }
