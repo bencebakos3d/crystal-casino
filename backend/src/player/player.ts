@@ -1,10 +1,22 @@
 import { dbHandler } from "../../database/databaseManager";
+/*
+    The player class contains and handles, the data of the player.If you want to 
+    manipulate the inner data of the object use the specified API functions.
+    Usage:
+    import Player class from this file, then instantiate a player object,
+    use the getter/setter functions in the following format:
+    [objectname].set[VariableName]()
+    [objectname].get[VariableName]()
+    for example:
+    let name = "john"
+    let myplayer = new Player([[10],[30]],[100,100],sessionId,name);
+    myplayert.setUserName(name);
 
-/*Constant values START*/
-export const DEFAULTNAME:string ="Default";
-export const DEFAULTBALANCE:number = 2000;
-/*Constant values END*/
-
+    Helper functions:
+    increase balance(value) : increases the balance of the player  by value amount
+    increase balance(value) : decreases the balance of the player  by value amount
+    syncFromDB():             loads data from databse to palyert object 
+*/
 export class Player{
 
     private sessionId:string;
@@ -13,7 +25,7 @@ export class Player{
     private bets:number[];
     private numbers:number[][];
 
-    constructor(parameterNumbers:number[][],parameterBets:number[],parameterSessionId:string,name:string){
+    constructor(parameterNumbers:number[][],parameterBets:number[],parameterSessionId:any,name:any){
         this.sessionId = parameterSessionId;
         this.userName = name;
         this.balance = 2000;        
@@ -22,7 +34,6 @@ export class Player{
     }
 
     async syncFromDB(){
-        //kijavtiani a konkurenciát NAGYON NEM JÓ
         let temporary = await dbHandler.queryRecordById(this.sessionId);
         this.setBlanace(temporary.Balance);
         this.setUsername(temporary.UserName);
