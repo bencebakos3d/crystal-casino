@@ -6,7 +6,7 @@ const path = require('path');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 
-const PORT = process.env.port;
+const PORT = process.env.PORT;
 // || 3001;
 const url = process.env.URL;
 // || 'http://localhost:3000';
