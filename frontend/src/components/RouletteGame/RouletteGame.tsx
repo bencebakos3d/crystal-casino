@@ -14,7 +14,6 @@ export default function RouletteGame() {
   const [showWinning, setShowWinning] = useState(false);
   const [prize, setPrize] = useState(0);
   const animationDuration = 5000;
-  let url = 'https://casino-s2oy.onrender.com';
 
   const url = process.env.REACT_APP_BACKEND_URL;
   //
