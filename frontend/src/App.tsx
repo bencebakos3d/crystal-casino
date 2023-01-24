@@ -11,6 +11,9 @@ import Blackjack from './pages/Blackjack/Blackjack';
 function App() {
   const url = process.env.REACT_APP_BACKEND_URL;
 
+  if (process.env.NODE_ENV === 'development') {
+    url = 'http://localhost:3001';
+  }
   if (!document.cookie.match('SessionID')) {
     console.log('You got a nice cookie ');
     fetch(`${url}/setcookie`, {
