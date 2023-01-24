@@ -21,11 +21,11 @@ export class RouletteWheel{
                 gamePlayer.increaseBalance(total);
             }
             else{
+                console.log(gamePlayer.getBalance());
                 gamePlayer.decreaseBalance(gamePlayer.getBets()[i]);
             }
         }
         
-        console.log(gamePlayer);
         let responseObject = {
             balance: gamePlayer.getBalance(),
             prize: total,
