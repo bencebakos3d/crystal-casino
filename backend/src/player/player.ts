@@ -82,4 +82,8 @@ export class Player{
     public setUsername(name:string){
         this.userName = name;
     }
+
+    public setNumbers(inputNumbers: number[][]){
+        this.numbers = inputNumbers;
+    }
 }
