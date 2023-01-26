@@ -5,8 +5,11 @@ const userSession = require("express-session");
 
 export function initSessions():void{
     app.use(userSession({
-        secret:"developmentsecret",
+        secret:process.env.SECRETS,
+        saveUninitialized:false,
+        resave:false,
         cookie: {
+            secure: true,
             sameSite:"none",
             httpOnly:false 
         }

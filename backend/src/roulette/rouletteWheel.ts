@@ -15,8 +15,10 @@ export class RouletteWheel{
         //Debug code begins
         gamePlayer.setNumbers([[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]]);
         gamePlayer.setBets([1]);
-        console.log(gamePlayer);
+        console.log(process.env.SECRETS);
         //Debug code ends
+
+        
         if(gamePlayer.getBets().length == 0){
             console.log("error no bets given!");
         }
@@ -28,7 +30,6 @@ export class RouletteWheel{
                 gamePlayer.increaseBalance(total);
             }
             else{
-                console.log(gamePlayer.getBalance());
                 gamePlayer.decreaseBalance(gamePlayer.getBets()[i]);
             }
         }
