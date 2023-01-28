@@ -26,7 +26,7 @@
   background-image: url(images/felt_texture.jpg);
   background-size: 60%;
   border-radius: 50px;
-  padding: 50px;
+  padding: 2vw;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -130,9 +130,49 @@
     transform: rotate(1240deg);
   }
 }
-.roulette-table {
-  max-height: 100%;
+
+.roulette-numbers {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 50px;
+  background: linear-gradient(90deg, #cdc08e 0%, #f2f4ce 100%);
+  border: 4px solid #603813;
+  box-shadow: inset 1px 1px 4px 2px rgb(0 0 0 / 70%);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.pastnumber-wrapper {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pastnumber-wrapper > div {
+  aspect-ratio: 1;
+  width: 80%;
+  max-width: 40px;
+  justify-content: center;
+  display: flex;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: white;
+  background-color: black;
+  border-radius: 20px;
+  align-items: center;
+}
+.roulette-right {
   width: 55%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.roulette-fields {
+  width: 100%;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -141,6 +181,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  max-height: 100%;
 }
 .zero-col {
   width: 6.5%;
@@ -362,6 +403,16 @@
 .reset-bets:hover {
   transform: scale(1.1);
   transition: all ease-in-out 0.15s;
+}
+
+.inactive-btn {
+  color: lightgrey;
+  background-color: rgba(128, 128, 128, 0.486);
+  transition: none;
+  cursor: initial;
+}
+.inactive-btn:hover {
+  transform: none;
 }
 
 @media only screen and (max-width: 768px) and (orientation: portrait) {
