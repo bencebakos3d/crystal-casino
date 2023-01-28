@@ -18,12 +18,6 @@ export default function Header() {
         <NavLink to="/roulette" className="menu-button">
           ROULETTE
         </NavLink>
-        <NavLink to="/slots" className="menu-button">
-          SLOTS
-        </NavLink>
-        <NavLink to="/blackjack" className="menu-button">
-          BLACKJACK
-        </NavLink>
       </div>
     </div>
   );
