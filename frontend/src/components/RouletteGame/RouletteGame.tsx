@@ -2,7 +2,7 @@ import React, { SetStateAction } from 'react';
 import './RouletteGame.modules.css';
 import rouletteWheelImg from './images/roulette-wheel.png';
 import rouletteBallImg from './images/roulette-ball.png';
-import { useState, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import winningVideo from './video/falling_coins.mp4';
 
 export default function RouletteGame() {
@@ -15,6 +15,18 @@ export default function RouletteGame() {
   const [bettingActive, setBettingActive] = useState(true);
   const [prize, setPrize] = useState(0);
   const [pastNumbers, setPastNumbers] = useState<number[]>([]);
+
+  const userBalance = localStorage.getItem('user-balance');
+
+  useEffect(() => {
+    if (userBalance === null) {
+      localStorage.setItem('user-balance', balance.toString());
+    } else {
+      if (parseInt(userBalance) !== balance) {
+        setBalance(parseInt(userBalance));
+      }
+    }
+  }, []);
 
   const animationDuration = 5000;
 
@@ -100,6 +112,7 @@ export default function RouletteGame() {
         let prize = data.prize;
         setPrize(prize);
         setBalance(userBalance);
+        localStorage.setItem('user-balance', balance.toString());
 
         for (let i = 0; i < RouletteFields.length; i++) {
           if (returnedNumber == RouletteFields[i]) {
