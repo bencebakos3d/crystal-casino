@@ -151,18 +151,32 @@
 }
 
 .pastnumber-wrapper > div {
-  aspect-ratio: 1;
   width: 80%;
-  max-width: 40px;
+  max-width: 2rem;
   justify-content: center;
   display: flex;
   font-size: 1.3rem;
   font-weight: 800;
-  color: white;
-  background-color: black;
-  border-radius: 20px;
   align-items: center;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+  box-sizing: border-box;
 }
+
+.pastnumber-green {
+  border-color: green;
+  color: green;
+}
+
+.pastnumber-black {
+  border-color: black;
+  color: black;
+}
+.pastnumber-red {
+  border-color: red;
+  color: red;
+}
+
 .roulette-right {
   width: 55%;
   height: 100%;
