@@ -74,13 +74,11 @@ export default function RouletteGame() {
   };
   const RouletteFields = [0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33, 1, 20, 14, 31, 9, 22, 18, 29, 7, 28, 12, 35, 3, 26];
   const RouletteReds = [32, 19, 21, 25, 34, 27, 36, 30, 23, 5, 16, 1, 14, 9, 18, 7, 12, 3];
-  const RouletteBlacks = [15, 4, 2, 17, 6, 13, 11, 8, 10, 24, 33, 20, 31, 22, 29, 28, 35, 26];
 
   // Sends chosen numbers and bets to the backend, returns the random number and the amount of money the player has
-
   function handleSpin(): void {
     if (bettingActive === false || allBets.length === 0 || allNumbers.length === 0) {
-      alert('There is no bets.');
+      alert('There are no bets.');
       return;
     }
     console.log('fetching ' + url);
@@ -128,7 +126,6 @@ export default function RouletteGame() {
         console.log(data);
 
         // Adds the number to the list of past numbers
-
         if (pastNumbers.length < 10) {
           setPastNumbers((current) => [...current, returnedNumber]);
         } else {
@@ -144,7 +141,8 @@ export default function RouletteGame() {
       });
   }
 
-  function removeBets() {
+  // Resets all active bets
+  function removeBets(): void {
     let divs = document.querySelectorAll('.bet-1, .bet-5, .bet-25, .bet-100, .bet-500');
     divs.forEach((div) => {
       div.classList.remove('bet-1', 'bet-5', 'bet-25', 'bet-100', 'bet-500');
@@ -154,8 +152,7 @@ export default function RouletteGame() {
   }
   function invalidSpin(): void {}
 
-  // Winning screen animation
-
+  // Creates DOM for every past number (max. 10)
   const pastItems = pastNumbers.map((number) => (
     <div className="pastnumber-wrapper">
       <div className={`${number === 0 ? 'pastnumber-green' : RouletteReds.includes(number) ? 'pastnumber-red' : 'pastnumber-black'}`}>{number}</div>
@@ -164,10 +161,6 @@ export default function RouletteGame() {
 
   return (
     <div className="main-wrapper">
-      <div className="mobile-unable">
-        <div className="mobile-phone"></div>
-        <h2>Please rotate your device for the best possible experience.</h2>
-      </div>
       <div className="roulette-table-border">
         <div className="roulette-table-wrapper">
           {showWinning ? (
