@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { app } from "../index";
 
 const userSession = require("express-session");
-const MemoryStore = require('memorystore');
+const MemoryStore = require('memorystore')(userSession);
 
 export function initSessions():void{
     app.use(userSession({
