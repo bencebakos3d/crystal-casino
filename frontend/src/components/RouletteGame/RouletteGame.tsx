@@ -3,7 +3,7 @@ import './RouletteGame.modules.css';
 import rouletteWheelImg from './images/roulette-wheel.png';
 import rouletteBallImg from './images/roulette-ball.png';
 import { useState, useEffect } from 'react';
-import winningVideo from './video/falling_coins.mp4';
+import WinningScreen from '../WinningScreen/WinningScreen';
 
 export default function RouletteGame() {
   const [allNumbers, setAllNumbers] = useState<number[][]>([]);
@@ -28,17 +28,13 @@ export default function RouletteGame() {
     }
   }, []);
 
+  // Sets the duration of the wheel spinning animation in millisecons
   const animationDuration = 5000;
 
   const url = process.env.REACT_APP_BACKEND_URL;
-  //
-  // Spins roulette wheel and ball
-  //
-  function spinRoulette(angle: number): void {
-    //
-    // Total time of roulette animation
-    //
 
+  // Spins roulette wheel and ball
+  function spinRoulette(angle: number): void {
     const wheel = document.getElementById('rouletteWheel') as HTMLElement;
     const ball = document.getElementById('rouletteBall') as HTMLElement;
     wheel.style.transitionProperty = 'all';
@@ -160,23 +156,6 @@ export default function RouletteGame() {
 
   // Winning screen animation
 
-  const WinningScreen = () => (
-    <div
-      className="winning-screen "
-      onClick={() => {
-        setShowWinning(false);
-        setBettingActive(true);
-      }}
-    >
-      <h1>WINNER!</h1>
-      <h2>+ $ {prize}</h2>
-      <p>Click to continue</p>
-      <video preload="auto" autoPlay muted loop id="myVideo">
-        <source src={winningVideo} type="video/mp4" />
-      </video>
-    </div>
-  );
-
   const pastItems = pastNumbers.map((number) => (
     <div className="pastnumber-wrapper">
       <div className={`${number === 0 ? 'pastnumber-green' : RouletteReds.includes(number) ? 'pastnumber-red' : 'pastnumber-black'}`}>{number}</div>
@@ -191,7 +170,15 @@ export default function RouletteGame() {
       </div>
       <div className="roulette-table-border">
         <div className="roulette-table-wrapper">
-          {showWinning ? <WinningScreen /> : null}
+          {showWinning ? (
+            <WinningScreen
+              prize={prize}
+              handleClick={() => {
+                setShowWinning(false);
+                setBettingActive(true);
+              }}
+            />
+          ) : null}
 
           <div className="roulette-wheel-wrapper">
             <img src={rouletteWheelImg} alt="" className="roulette-wheel" id="rouletteWheel" />

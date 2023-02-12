@@ -35,46 +35,6 @@
   box-sizing: border-box;
   position: relative;
 }
-.winning-screen {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  cursor: pointer;
-  transition: opacity 0.5s ease-out;
-  opacity: 1;
-}
-
-.winning-screen > h1,
-.winning-screen > h2,
-.winning-screen > p {
-  cursor: pointer;
-  z-index: 11;
-}
-.winning-screen > h2 {
-  font-size: 2rem;
-  margin-top: 0.5rem;
-}
-.winning-screen > p {
-  position: absolute;
-  bottom: 20px;
-  font-size: 1.2rem;
-}
-.winning-screen > video {
-  position: absolute;
-  z-index: 9;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50px;
-  opacity: 0.85;
-}
 .roulette-left-col {
   width: 40%;
   display: flex;
@@ -101,7 +61,6 @@
   position: relative;
   transition-timing-function: ease-out;
 }
-
 .roulette-ball {
   max-height: 100%;
   max-width: 100%;
