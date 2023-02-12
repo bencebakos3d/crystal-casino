@@ -10,7 +10,7 @@ export function initSessions():void{
         resave:false,
         cookie: {
             secure: true,
-            store: "",
+            store: null,
             sameSite:"none",
             httpOnly:false 
         }
