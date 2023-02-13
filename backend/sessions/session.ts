@@ -1,19 +1,24 @@
 import { Request, Response } from "express";
 import { app } from "../index";
+import config from '../config';
 
 const userSession = require("express-session");
-const MemoryStore = require('memorystore')(userSession);
+var MySQLStore = require('express-mysql-session')(userSession);
+
+var sessionStore = new MySQLStore({
+    host: config.mysql.host,
+    user: config.mysql.user,
+    port: config.mysql.port,
+    password: config.mysql.password,
+    database: config.mysql.database,
+})
 
 export function initSessions():void{
     app.use(userSession({
         secret:process.env.SECRETS,
-        saveUninitialized:false,
-        resave:false,
+        store:sessionStore,
         cookie: {
-            secure: true,
-            store: new MemoryStore({
-                checkPeriod: 86400000 // prune expired entries every 24h
-              }),
+            secure: false,
             sameSite:"none",
             httpOnly:false 
         }
