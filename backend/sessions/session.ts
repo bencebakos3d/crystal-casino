@@ -16,14 +16,14 @@ var sessionStore = new MySQLStore({
 export function initSessions():void{
     app.use(userSession({
         saveUninitialized : false,
-        resave : true,
+        resave : false,
         secret:process.env.SECRETS,
         store:sessionStore,
         cookie: {
             secure: false,
             sameSite:false,
             httpOnly:false 
-        }
+        },
     }));
 }
 

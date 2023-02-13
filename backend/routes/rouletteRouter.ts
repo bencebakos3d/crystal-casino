@@ -13,8 +13,8 @@ export function setUpRouletteRoutes() {
       finalResult = await playRoulette(numbers, bets, req.session.id, 'test',req);
     }
 
-    console.log(req.sessionID);
-    console.log(finalResult);
+    // @ts-ignore
+    req.session.balance = finalResult.balance;
     res.status(200).json(finalResult);
   });
 }

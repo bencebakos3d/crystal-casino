@@ -29,7 +29,6 @@ app.listen(PORT, () => {
 app.get('/setcookie', async (req: any, res: any) => {
   req.session.balance = config.defaultValues.defaultBalance;
   req.userName = "test";
-  console.log(req.session.id)
   res.send(req.session.id);
 });
 

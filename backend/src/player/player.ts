@@ -85,9 +85,6 @@ export class Player{
     }
 
     public updateSession(player:any){
-        player.session.save(function(err:any){
-
-        });
-        //lastvisitet hozzáadmi
+        
     }
 }
