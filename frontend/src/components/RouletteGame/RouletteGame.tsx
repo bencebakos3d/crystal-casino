@@ -106,7 +106,7 @@ export default function RouletteGame() {
         let prize = data.prize;
         setPrize(prize);
         setBalance(userBalance);
-        localStorage.setItem('user-balance', balance.toString());
+        localStorage.setItem('user-balance', userBalance.toString());
 
         for (let i = 0; i < RouletteFields.length; i++) {
           if (returnedNumber === RouletteFields[i]) {
