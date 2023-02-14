@@ -11,6 +11,8 @@ var sessionStore = new MySQLStore({
     port: config.mysql.port,
     password: config.mysql.password,
     database: config.mysql.database,
+    checkExpirationInterval: 10800000,
+    expiration: 10800000 
 })
 
 export function initSessions():void{
@@ -20,6 +22,7 @@ export function initSessions():void{
         secret:process.env.SECRETS,
         store:sessionStore,
         cookie: {
+            expires: 10800000,
             secure: false,
             sameSite:false,
             httpOnly:false 
