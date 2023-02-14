@@ -1,4 +1,4 @@
-import React, { SetStateAction } from 'react';
+import React from 'react';
 import './RouletteGame.modules.css';
 import rouletteWheelImg from './images/roulette-wheel.png';
 import rouletteBallImg from './images/roulette-ball.png';
@@ -109,7 +109,7 @@ export default function RouletteGame() {
         localStorage.setItem('user-balance', balance.toString());
 
         for (let i = 0; i < RouletteFields.length; i++) {
-          if (returnedNumber == RouletteFields[i]) {
+          if (returnedNumber === RouletteFields[i]) {
             let rouletteAngle = (360 / 37) * i;
             spinRoulette(rouletteAngle);
             setTimeout(() => {
@@ -144,7 +144,6 @@ export default function RouletteGame() {
     setAllBets([]);
     setAllNumbers([]);
   }
-  function invalidSpin(): void {}
 
   // Creates DOM for every past number (max. 10)
   const pastItems = pastNumbers.map((number) => (
@@ -396,11 +395,11 @@ export default function RouletteGame() {
         </div>
 
         <div className="chips-wrapper">
-          <div id="chip-1" onClick={() => setValue(1)} className={value == 1 ? 'activeChip' : ''}></div>
-          <div id="chip-5" onClick={() => setValue(5)} className={value == 5 ? 'activeChip' : ''}></div>
-          <div id="chip-25" onClick={() => setValue(25)} className={value == 25 ? 'activeChip' : ''}></div>
-          <div id="chip-100" onClick={() => setValue(100)} className={value == 100 ? 'activeChip' : ''}></div>
-          <div id="chip-500" onClick={() => setValue(500)} className={value == 500 ? 'activeChip' : ''}></div>
+          <div id="chip-1" onClick={() => setValue(1)} className={value === 1 ? 'activeChip' : ''}></div>
+          <div id="chip-5" onClick={() => setValue(5)} className={value === 5 ? 'activeChip' : ''}></div>
+          <div id="chip-25" onClick={() => setValue(25)} className={value === 25 ? 'activeChip' : ''}></div>
+          <div id="chip-100" onClick={() => setValue(100)} className={value === 100 ? 'activeChip' : ''}></div>
+          <div id="chip-500" onClick={() => setValue(500)} className={value === 500 ? 'activeChip' : ''}></div>
         </div>
         <div className="footer-button-wrapper">
           <button disabled={!bettingActive} className={`spin-btn large-button ${!bettingActive ? 'inactive-btn' : ''}`} onClick={handleSpin}>

@@ -1,4 +1,3 @@
-import { type } from 'os';
 import React from 'react';
 import winningVideo from './video/falling_coins.mp4';
 import './WinningScreen.modules.css';

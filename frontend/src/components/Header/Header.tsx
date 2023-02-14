@@ -1,11 +1,9 @@
 import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Header.modules.css';
 import headerImg from './images/crystal-logo.png';
 
 export default function Header() {
-  const { pathname } = useLocation();
-
   return (
     <div className="header-wrapper">
       <div className="header-logo">
