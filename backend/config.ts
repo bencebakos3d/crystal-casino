@@ -13,6 +13,7 @@ export default {
 
   defaultValues:{
     defaultUsername: process.env.DEFAULT_NAME,
-    defaultBalance: process.env.DEFAULT_BALANCE
+    defaultBalance: parseInt(process.env.DEFAULT_BALANCE!),
+    expiration: parseInt(process.env.COOKIE_EXPIRATION!)
   }
 };

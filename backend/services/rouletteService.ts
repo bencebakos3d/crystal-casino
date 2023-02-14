@@ -7,7 +7,6 @@ export async function playRoulette(numbers:number[][],bets:number[],id:string, n
     let user = new Player(numbers,bets,id,name);
     await user.syncFromDB(request);
     let spinResult = wheel.spin(user);
-    await user.updateSession(request);
     console.log(request.session.id);
     return spinResult;
 }

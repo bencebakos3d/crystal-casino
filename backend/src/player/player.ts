@@ -1,3 +1,4 @@
+import config from '../../config';
 /*
     The player class contains and handles, the data of the player.If you want to 
     manipulate the inner data of the object use the specified API functions.
@@ -27,7 +28,7 @@ export class Player{
     constructor(parameterNumbers:number[][],parameterBets:number[],parameterSessionId:any,name:any){
         this.sessionId = parameterSessionId;
         this.userName = name;
-        this.balance = 2000;        
+        this.balance = config.defaultValues.defaultBalance     
         this.bets = parameterBets;
         this.numbers =parameterNumbers;
     }
@@ -82,9 +83,5 @@ export class Player{
 
     public setNumbers(inputNumbers: number[][]){
         this.numbers = inputNumbers;
-    }
-
-    public updateSession(player:any){
-        
     }
 }
