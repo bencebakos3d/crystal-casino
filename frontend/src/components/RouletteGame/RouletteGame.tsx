@@ -9,7 +9,6 @@ export default function RouletteGame() {
   const [allNumbers, setAllNumbers] = useState<number[][]>([]);
   const [allBets, setAllBets] = useState<number[]>([]);
   const [value, setValue] = useState(1);
-  const [activeChip, setActiveChip] = useState('boxShadow: 0px 0px 5px 3px white;');
   const [balance, setBalance] = useState(2000);
   const [showWinning, setShowWinning] = useState(false);
   const [bettingActive, setBettingActive] = useState(true);
@@ -81,7 +80,6 @@ export default function RouletteGame() {
       alert('There are no bets.');
       return;
     }
-    console.log('fetching ' + url);
     setBettingActive(false);
     setTimeout(() => {
       removeBets();
@@ -115,11 +113,7 @@ export default function RouletteGame() {
             let rouletteAngle = (360 / 37) * i;
             spinRoulette(rouletteAngle);
             setTimeout(() => {
-              if (prize > 0) {
-                setShowWinning(true);
-              } else {
-                setBettingActive(true);
-              }
+              setShowWinning(true);
             }, animationDuration + 700);
           }
         }
@@ -170,6 +164,7 @@ export default function RouletteGame() {
                 setShowWinning(false);
                 setBettingActive(true);
               }}
+              number={pastNumbers[pastNumbers.length - 1]}
             />
           ) : null}
 

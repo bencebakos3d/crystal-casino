@@ -1,10 +1,17 @@
-.winning-screen {
-  position: absolute;
+.screen-wrapper {
   width: 100%;
   height: 100%;
+  position: absolute;
   left: 0;
   top: 0;
   z-index: 10;
+  border-radius: 50px;
+  overflow: hidden;
+}
+.winning,
+.losing {
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,27 +21,64 @@
   opacity: 1;
 }
 
-.winning-screen > h1,
-.winning-screen > h2,
-.winning-screen > p {
+h1,
+h2,
+p {
   cursor: pointer;
   z-index: 11;
 }
-.winning-screen > h2 {
+
+h2 {
   font-size: 2rem;
   margin-top: 0.5rem;
 }
-.winning-screen > p {
-  position: absolute;
-  bottom: 20px;
+p {
   font-size: 1.2rem;
 }
-.winning-screen > video {
+.continue-text {
+  position: absolute;
+  bottom: 20px;
+}
+.winning-text {
+  position: absolute;
+  top: 20px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.winning > video {
   position: absolute;
   z-index: 9;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50px;
   opacity: 0.85;
+  filter: blur(2px);
+}
+.losing {
+  background-color: #000000e3;
+}
+.number-display {
+  width: 100px;
+  height: 100px;
+  color: white;
+  font-weight: 900;
+  font-size: 50px;
+  border-radius: 50px;
+  border: 3px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-sizing: border-box;
+}
+.number-green {
+  background-color: green;
+}
+.number-red {
+  background-color: #de3c3a;
+}
+.number-black {
+  background-color: black;
 }
