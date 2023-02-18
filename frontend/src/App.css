@@ -50,6 +50,15 @@ body {
   transition: all ease-in-out 0.15s;
 }
 
+@media only screen and (max-width: 1024px) {
+  .large-button {
+    width: 150px;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   h1 {
     font-size: 48px;
@@ -59,5 +68,8 @@ body {
   p {
     font-size: 20px;
     line-height: 38px;
+  }
+  h2 {
+    font-size: 2rem;
   }
 }

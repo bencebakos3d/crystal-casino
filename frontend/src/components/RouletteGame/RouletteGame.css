@@ -26,7 +26,7 @@
   background-image: url(images/felt_texture.jpg);
   background-size: 60%;
   border-radius: 50px;
-  padding: 50px;
+  padding: 2vw;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -34,46 +34,6 @@
   box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.8);
   box-sizing: border-box;
   position: relative;
-}
-.winning-screen {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  cursor: pointer;
-  transition: opacity 0.5s ease-out;
-  opacity: 1;
-}
-
-.winning-screen > h1,
-.winning-screen > h2,
-.winning-screen > p {
-  cursor: pointer;
-  z-index: 11;
-}
-.winning-screen > h2 {
-  font-size: 2rem;
-  margin-top: 0.5rem;
-}
-.winning-screen > p {
-  position: absolute;
-  bottom: 20px;
-  font-size: 1.2rem;
-}
-.winning-screen > video {
-  position: absolute;
-  z-index: 9;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50px;
-  opacity: 0.85;
 }
 .roulette-left-col {
   width: 40%;
@@ -101,7 +61,6 @@
   position: relative;
   transition-timing-function: ease-out;
 }
-
 .roulette-ball {
   max-height: 100%;
   max-width: 100%;
@@ -130,9 +89,64 @@
     transform: rotate(1240deg);
   }
 }
-.roulette-table {
-  max-height: 100%;
+
+.roulette-numbers {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 50px;
+  background: linear-gradient(90deg, #cdc08e 0%, #f2f4ce 100%);
+  border: 4px solid #603813;
+  box-shadow: inset 1px 1px 4px 2px rgb(0 0 0 / 70%);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+}
+.pastnumber-wrapper {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pastnumber-wrapper > div {
+  width: 80%;
+  max-width: 2rem;
+  justify-content: center;
+  display: flex;
+  font-size: 1.3rem;
+  font-weight: 800;
+  align-items: center;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+  box-sizing: border-box;
+}
+
+.pastnumber-green {
+  border-color: green;
+  color: green;
+}
+
+.pastnumber-black {
+  border-color: black;
+  color: black;
+}
+.pastnumber-red {
+  border-color: red;
+  color: red;
+}
+
+.roulette-right {
   width: 55%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.roulette-fields {
+  width: 100%;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -141,6 +155,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  max-height: 100%;
 }
 .zero-col {
   width: 6.5%;
@@ -275,7 +290,8 @@
 
 .chips-wrapper > div {
   width: 70px;
-  height: 70px;
+  aspect-ratio: 1;
+  max-width: 20%;
   border-radius: 35px;
   cursor: pointer;
   background-size: contain;
@@ -364,45 +380,157 @@
   transition: all ease-in-out 0.15s;
 }
 
-@media only screen and (max-width: 768px) and (orientation: portrait) {
-  .mobile-unable {
-    display: flex;
-    flex-direction: column;
-    width: 90vw;
-    background-color: #00813d;
-    border-radius: 20px;
-    height: calc(100vh - 230px);
-    padding: 30px;
-    box-sizing: border-box;
+.inactive-btn {
+  color: lightgrey;
+  background-color: rgba(128, 128, 128, 0.486);
+  transition: none;
+  cursor: initial;
+}
+.inactive-btn:hover {
+  transform: none;
+}
+
+@media only screen and (max-width: 1024px) and (orientation: portrait) {
+  .roulette-table-border {
+    max-height: unset;
+    height: calc(100% - 200px);
+  }
+  .roulette-footer {
+    margin-top: unset;
+    gap: unset;
+    justify-content: space-between;
+    position: absolute;
+  }
+  .header-wrapper {
+    height: 150px;
+  }
+  .page-wrapper {
+    height: calc(100vh - 160px);
+  }
+  .roulette-right {
+    width: 100%;
+    height: 50%;
     align-items: center;
-    justify-content: center;
   }
-  .mobile-phone {
-    height: 50px;
-    width: 100px;
-    border: 3px solid white;
-    border-radius: 10px;
-    animation: rotatePhone 1.5s ease-in-out infinite alternate;
-    /* display: none; */
-  }
-  @keyframes rotatePhone {
-    0% {
-      transform: rotate(0deg);
-    }
-    50% {
-      transform: rotate(-90deg);
-    }
-    100% {
-      transform: rotate(-90deg);
-    }
-  }
-  .mobile-unable > h2 {
-    text-align: center;
-    padding-top: 50px;
+  .roulette-wheel-wrapper {
+    height: 50%;
+    width: unset;
   }
   .roulette-table-wrapper {
-    display: none;
+    padding: 5vw;
+    flex-direction: column;
+  }
+  .roulette-numbers {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    height: 60px;
+    max-width: 600px;
+  }
+  .pastnumber-wrapper > div {
+    font-size: 1.6rem;
+  }
+  .footer-element-wrapper {
+    width: 25%;
+    justify-content: center;
+  }
+  .footer-button-wrapper {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+  }
+  .chips-wrapper {
+    max-width: 50%;
+  }
+  .chips-wrapper > div {
+    max-width: calc(20% - 16px);
+  }
+  .footer-balance {
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+  }
+  .spin-btn {
+    width: 75%;
   }
 }
+
 @media only screen and (max-width: 768px) and (orientation: portrait) {
+  .header-logo {
+    display: none;
+  }
+  .header-wrapper {
+    height: 50px;
+  }
+  .header {
+    height: unset;
+  }
+  .roulette-table-border {
+    height: 100%;
+    width: 100vw;
+    border-radius: unset;
+    background-color: unset;
+    padding: 0;
+  }
+  .roulette-table-wrapper {
+    border-radius: unset;
+    background-size: 100%;
+    padding: 3vw;
+  }
+  .pastnumber-wrapper > div {
+    font-size: 1rem;
+    border-bottom-width: 3px;
+  }
+  .chips-wrapper {
+    order: -1;
+    width: 100%;
+    max-width: unset;
+    justify-content: space-evenly;
+    gap: unset;
+  }
+  .chips-wrapper > div {
+    max-width: 13%;
+  }
+  .roulette-footer {
+    flex-wrap: wrap;
+    align-items: flex-end;
+  }
+  .page-wrapper {
+    height: calc(100vh - 50px);
+  }
+  .footer-element-wrapper {
+    width: 50%;
+    height: 50%;
+    align-items: center;
+  }
+  .footer-element-wrapper > div {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .footer-element-wrapper > div > h2 {
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
+  .footer-button-wrapper {
+    width: 50%;
+    height: 50%;
+    align-items: center;
+  }
+  .footer-balance {
+    font-size: 0.8rem;
+    line-height: 1rem;
+  }
+  .spin-btn {
+    height: 50px;
+  }
+  .reset-bets {
+    bottom: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-size: 15px;
+  }
+  .roulette-numbers {
+    height: 40px;
+  }
 }

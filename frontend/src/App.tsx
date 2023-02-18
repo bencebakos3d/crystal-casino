@@ -1,17 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Index from './pages/Index/Index';
 import Roulette from './pages/Roulette/Roulette';
-import Slots from './pages/Slots/Slots';
-import Blackjack from './pages/Blackjack/Blackjack';
 
 function App() {
   const url = process.env.REACT_APP_BACKEND_URL;
 
-  if (!document.cookie.match('SessionID')) {
+  if (!document.cookie.match('connect.sid')) {
+    localStorage.setItem('user-balance', '2000');
     console.log('You got a nice cookie ');
     fetch(`${url}/setcookie`, {
       credentials: 'include',
@@ -31,8 +29,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/roulette" element={<Roulette />} />
-          <Route path="/slots" element={<Slots />} />
-          <Route path="/blackjack" element={<Blackjack />} />
         </Routes>
       </Router>
     </div>

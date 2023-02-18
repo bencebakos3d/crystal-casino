@@ -1,4 +1,4 @@
-import { dbHandler } from "../../database/databaseManager";
+import config from '../../config';
 /*
     The player class contains and handles, the data of the player.If you want to 
     manipulate the inner data of the object use the specified API functions.
@@ -28,16 +28,14 @@ export class Player{
     constructor(parameterNumbers:number[][],parameterBets:number[],parameterSessionId:any,name:any){
         this.sessionId = parameterSessionId;
         this.userName = name;
-        this.balance = 2000;        
+        this.balance = config.defaultValues.defaultBalance     
         this.bets = parameterBets;
         this.numbers =parameterNumbers;
     }
 
-    async syncFromDB(){
-        let temporary = await dbHandler.queryRecordById(this.sessionId);
-        this.setBlanace(temporary.Balance);
-        this.setUsername(temporary.UserName);
-        this.sessionId = temporary.SessionID;
+    async syncFromDB(player:any){
+        this.setBlanace(player.session.balance);
+        this.setUsername(player.session.userName);
     }
 
     public getNumbers(){
@@ -81,5 +79,9 @@ export class Player{
 
     public setUsername(name:string){
         this.userName = name;
+    }
+
+    public setNumbers(inputNumbers: number[][]){
+        this.numbers = inputNumbers;
     }
 }
