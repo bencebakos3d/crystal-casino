@@ -1,6 +1,6 @@
 import React from 'react';
 import winningVideo from './video/falling_coins.mp4';
-import './WinningScreen.modules.css';
+import './WinningScreen.css';
 
 interface WinningScreenProps {
   prize: number;
@@ -14,7 +14,7 @@ export default function WinningScreen({ prize, handleClick, number }: WinningScr
   const numberDisplay = <div className={`number-display ${number === 0 ? 'number-green' : RouletteReds.includes(number) ? 'number-red' : 'number-black'}`}>{number}</div>;
 
   return (
-    <div className="screen-wrapper " onClick={handleClick}>
+    <div className="winningScreen-wrapper " onClick={handleClick}>
       {prize > 0 ? (
         <div className="winning">
           <div className="winning-text">

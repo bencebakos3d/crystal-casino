@@ -399,6 +399,7 @@
     margin-top: unset;
     gap: unset;
     justify-content: space-between;
+    position: absolute;
   }
   .header-wrapper {
     height: 150px;
@@ -463,7 +464,7 @@
     height: unset;
   }
   .roulette-table-border {
-    height: calc(100% - 150px);
+    height: 100%;
     width: 100vw;
     border-radius: unset;
     background-color: unset;
@@ -472,9 +473,11 @@
   .roulette-table-wrapper {
     border-radius: unset;
     background-size: 100%;
+    padding: 3vw;
   }
   .pastnumber-wrapper > div {
-    font-size: 1.3rem;
+    font-size: 1rem;
+    border-bottom-width: 3px;
   }
   .chips-wrapper {
     order: -1;
@@ -519,5 +522,15 @@
   }
   .spin-btn {
     height: 50px;
+  }
+  .reset-bets {
+    bottom: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-size: 15px;
+  }
+  .roulette-numbers {
+    height: 40px;
   }
 }

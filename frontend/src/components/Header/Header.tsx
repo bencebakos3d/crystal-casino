@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './Header.modules.css';
+import './Header.css';
 import headerImg from './images/crystal-logo.png';
 
 export default function Header() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import './RouletteGame.modules.css';
+import './RouletteGame.css';
 import rouletteWheelImg from './images/roulette-wheel.png';
 import rouletteBallImg from './images/roulette-ball.png';
 import { useState, useEffect } from 'react';
@@ -58,18 +58,17 @@ export default function RouletteGame() {
   }
 
   const betOnNumber = (event: React.SyntheticEvent, arr: number[]) => {
-    console.log(event.currentTarget);
-    event.currentTarget.classList.add(`bet-${value}`);
-    if (balance - value >= 0) {
-      setAllNumbers((current) => [...current, arr]);
-      setAllBets((current) => [...current, value]);
-      setBalance((prevbalance) => prevbalance - value);
-    } else {
-      alert("You don't have the money");
+    if (bettingActive) {
+      console.log(event.currentTarget);
+      event.currentTarget.classList.add(`bet-${value}`);
+      if (balance - value >= 0) {
+        setAllNumbers((current) => [...current, arr]);
+        setAllBets((current) => [...current, value]);
+        setBalance((prevbalance) => prevbalance - value);
+      } else {
+        alert("You don't have the money");
+      }
     }
-
-    console.log('bet on ' + arr);
-    console.log('betting ' + value);
   };
   const RouletteFields = [0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33, 1, 20, 14, 31, 9, 22, 18, 29, 7, 28, 12, 35, 3, 26];
   const RouletteReds = [32, 19, 21, 25, 34, 27, 36, 30, 23, 5, 16, 1, 14, 9, 18, 7, 12, 3];
@@ -105,7 +104,7 @@ export default function RouletteGame() {
         let userBalance = data.balance;
         let prize = data.prize;
         setPrize(prize);
-        setBalance(userBalance);
+
         localStorage.setItem('user-balance', userBalance.toString());
 
         for (let i = 0; i < RouletteFields.length; i++) {
@@ -113,6 +112,7 @@ export default function RouletteGame() {
             let rouletteAngle = (360 / 37) * i;
             spinRoulette(rouletteAngle);
             setTimeout(() => {
+              setBalance(userBalance);
               setShowWinning(true);
             }, animationDuration + 700);
           }
@@ -120,14 +120,16 @@ export default function RouletteGame() {
         console.log(data);
 
         // Adds the number to the list of past numbers
-        if (pastNumbers.length < 10) {
-          setPastNumbers((current) => [...current, returnedNumber]);
-        } else {
-          const pastNumbersList: number[] = pastNumbers;
-          pastNumbersList.shift();
-          pastNumbersList.push(returnedNumber);
-          setPastNumbers(pastNumbersList);
-        }
+        setTimeout(() => {
+          if (pastNumbers.length < 10) {
+            setPastNumbers((current) => [...current, returnedNumber]);
+          } else {
+            const pastNumbersList: number[] = pastNumbers;
+            pastNumbersList.shift();
+            pastNumbersList.push(returnedNumber);
+            setPastNumbers(pastNumbersList);
+          }
+        }, animationDuration + 700);
       })
       .catch((err) => {
         console.log(err);
