@@ -104,8 +104,7 @@ export default function RouletteGame() {
         let userBalance = data.balance;
         let prize = data.prize;
         setPrize(prize);
-
-        localStorage.setItem('user-balance', userBalance.toString());
+        console.log(data.balance);
 
         for (let i = 0; i < RouletteFields.length; i++) {
           if (returnedNumber === RouletteFields[i]) {
@@ -114,6 +113,7 @@ export default function RouletteGame() {
             setTimeout(() => {
               setBalance(userBalance);
               setShowWinning(true);
+              localStorage.setItem('user-balance', userBalance.toString());
             }, animationDuration + 700);
           }
         }
