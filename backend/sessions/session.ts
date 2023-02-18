@@ -1,7 +1,7 @@
-import { app } from "../index";
+import { app } from '../index';
 import config from '../config';
 
-const userSession = require("express-session");
+const userSession = require('express-session');
 var MySQLStore = require('express-mysql-session')(userSession);
 
 /*
@@ -12,26 +12,28 @@ var MySQLStore = require('express-mysql-session')(userSession);
     readme files in the node_modules directory
 */
 var sessionStore = new MySQLStore({
-    host: config.mysql.host,
-    user: config.mysql.user,
-    port: config.mysql.port,
-    password: config.mysql.password,
-    database: config.mysql.database,
-    checkExpirationInterval: config.defaultValues.expiration,
-    expiration: config.defaultValues.expiration 
-})
+  host: config.mysql.host,
+  user: config.mysql.user,
+  port: config.mysql.port,
+  password: config.mysql.password,
+  database: config.mysql.database,
+  checkExpirationInterval: config.defaultValues.expiration,
+  expiration: config.defaultValues.expiration,
+});
 
-export function initSessions():void{
-    app.use(userSession({
-        saveUninitialized : false,
-        resave : false,
-        secret:process.env.SECRETS,
-        store:sessionStore,
-        cookie: {
-            expires: config.defaultValues.expiration,
-            secure: false,
-            sameSite:false,
-            httpOnly:false 
-        },
-    }));
+export function initSessions(): void {
+  app.use(
+    userSession({
+      saveUninitialized: false,
+      resave: false,
+      secret: process.env.SECRETS,
+      store: sessionStore,
+      cookie: {
+        expires: config.defaultValues.expiration,
+        secure: true,
+        sameSite: false,
+        httpOnly: false,
+      },
+    })
+  );
 }
