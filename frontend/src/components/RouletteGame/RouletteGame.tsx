@@ -148,9 +148,11 @@ export default function RouletteGame() {
   }
 
   // Creates DOM for every past number (max. 10)
-  const pastItems = pastNumbers.map((number) => (
-    <div className="pastnumber-wrapper">
-      <div className={`${number === 0 ? 'pastnumber-green' : RouletteReds.includes(number) ? 'pastnumber-red' : 'pastnumber-black'}`}>{number}</div>
+  const pastItems = pastNumbers.map((number, index) => (
+    <div key={index} className="pastnumber-wrapper">
+      <div key={number} className={`${number === 0 ? 'pastnumber-green' : RouletteReds.includes(number) ? 'pastnumber-red' : 'pastnumber-black'}`}>
+        {number}
+      </div>
     </div>
   ));
 
