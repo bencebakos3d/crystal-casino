@@ -104,8 +104,7 @@ export default function RouletteGame() {
         let userBalance = data.balance;
         let prize = data.prize;
         setPrize(prize);
-
-        localStorage.setItem('user-balance', userBalance.toString());
+        console.log(data.balance);
 
         for (let i = 0; i < RouletteFields.length; i++) {
           if (returnedNumber === RouletteFields[i]) {
@@ -114,6 +113,7 @@ export default function RouletteGame() {
             setTimeout(() => {
               setBalance(userBalance);
               setShowWinning(true);
+              localStorage.setItem('user-balance', userBalance.toString());
             }, animationDuration + 700);
           }
         }
@@ -148,9 +148,11 @@ export default function RouletteGame() {
   }
 
   // Creates DOM for every past number (max. 10)
-  const pastItems = pastNumbers.map((number) => (
-    <div className="pastnumber-wrapper">
-      <div className={`${number === 0 ? 'pastnumber-green' : RouletteReds.includes(number) ? 'pastnumber-red' : 'pastnumber-black'}`}>{number}</div>
+  const pastItems = pastNumbers.map((number, index) => (
+    <div key={index} className="pastnumber-wrapper">
+      <div key={number} className={`${number === 0 ? 'pastnumber-green' : RouletteReds.includes(number) ? 'pastnumber-red' : 'pastnumber-black'}`}>
+        {number}
+      </div>
     </div>
   ));
 
