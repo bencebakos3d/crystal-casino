@@ -32,7 +32,7 @@ export function initSessions(): void {
       cookie: {
         expires: config.defaultValues.expiration,
         secure: true,
-        sameSite: false,
+        sameSite: 'none',
         httpOnly: true,
       },
     })
