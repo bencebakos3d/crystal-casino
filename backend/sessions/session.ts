@@ -24,6 +24,7 @@ var sessionStore = new MySQLStore({
 export function initSessions(): void {
   app.use(
     userSession({
+      proxy: true,
       saveUninitialized: false,
       resave: false,
       secret: process.env.SECRETS,
