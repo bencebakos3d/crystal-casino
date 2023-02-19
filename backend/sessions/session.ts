@@ -33,7 +33,7 @@ export function initSessions(): void {
         expires: config.defaultValues.expiration,
         secure: true,
         sameSite: false,
-        httpOnly: false,
+        httpOnly: true,
       },
     })
   );
