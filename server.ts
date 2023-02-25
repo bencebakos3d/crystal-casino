@@ -2,6 +2,7 @@ const cors = require('cors');
 import { setUpRouletteRoutes } from './routes/rouletteRouter';
 import { initSessions } from './sessions/session';
 const express = require('express');
+const path = require('path');
 const cookieParser = require('cookie-parser');
 import config from './config';
 
@@ -18,11 +19,16 @@ app.use(
 );
 app.use(express.json());
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'build')));
 
 initSessions();
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
+});
+
+app.get('/', (req: any, res: any) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 app.get('/setcookie', async (req: any, res: any) => {

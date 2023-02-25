@@ -87,7 +87,7 @@ export default function RouletteGame() {
     setAllBets([]);
 
     // Sends all bets and numbers to the backend
-    fetch(`${url}/api/spinRoulette`, {
+    fetch(`/api/spinRoulette`, {
       credentials: 'include',
       method: 'POST',
       headers: {

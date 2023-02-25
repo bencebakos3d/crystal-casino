@@ -31,8 +31,8 @@ export function initSessions(): void {
       store: sessionStore,
       cookie: {
         expires: config.defaultValues.expiration,
-        secure: true,
-        sameSite: 'none',
+        secure: false,
+        sameSite: true,
         httpOnly: true,
       },
     })
