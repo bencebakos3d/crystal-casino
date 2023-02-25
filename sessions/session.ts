@@ -1,4 +1,4 @@
-import { app } from '../index';
+import { app } from '../server';
 import config from '../config';
 
 const userSession = require('express-session');

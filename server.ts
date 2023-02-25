@@ -25,7 +25,6 @@ app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
 
-
 app.get('/setcookie', async (req: any, res: any) => {
   req.session.balance = config.defaultValues.defaultBalance;
   req.userName = config.defaultValues.defaultUsername;
