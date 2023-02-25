@@ -27,11 +27,11 @@ app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
 
-app.get('/', (req: any, res: any) => {
+app.get('/*', (req: any, res: any) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-app.get('/setcookie', async (req: any, res: any) => {
+app.get('/api/setcookie', async (req: any, res: any) => {
   req.session.balance = config.defaultValues.defaultBalance;
   req.userName = config.defaultValues.defaultUsername;
   res.send(req.session.id);
