@@ -7,7 +7,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
-    "@types/node": "^16.11.58",
+    "@types/node": "^18.11.3",
     "@types/react": "^18.0.19",
     "@types/react-dom": "^18.0.6",
     "dotenv": "^16.0.3",
@@ -16,7 +16,21 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
     "typescript": "^4.8.3",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "@types/express-session": "^1.17.5",
+    "cookie-parser": "^1.4.6",
+    "cookie-session": "^2.0.0",
+    "cors": "^2.8.5",
+    "db-migrate": "^0.11.13",
+    "db-migrate-mysql": "^2.2.0",
+    "express": "^4.18.1",
+    "express-mysql-session": "^2.1.8",
+    "express-session": "^1.17.3",
+    "memorystore": "^1.6.7",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.20",
+    "require": "^0.4.4",
+    "ts-node": "^10.9.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -41,5 +55,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/express-session": "^1.17.5",
+    "@types/node": "^18.11.3"
   }
 }
