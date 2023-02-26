@@ -22,19 +22,37 @@ var sessionStore = new MySQLStore({
 });
 
 export function initSessions(): void {
-  app.use(
-    userSession({
-      proxy: true,
-      saveUninitialized: false,
-      resave: false,
-      secret: process.env.SECRETS,
-      store: sessionStore,
-      cookie: {
-        expires: config.defaultValues.expiration,
-        secure: true,
-        sameSite: true,
-        httpOnly: true,
-      },
-    })
-  );
+  if (process.env.NODE_ENV === 'production') {
+    app.use(
+      userSession({
+        proxy: true,
+        saveUninitialized: false,
+        resave: false,
+        secret: process.env.SECRETS,
+        store: sessionStore,
+        cookie: {
+          expires: config.defaultValues.expiration,
+          secure: true,
+          sameSite: true,
+          httpOnly: true,
+        },
+      })
+    );
+  } else if (process.env.NODE_ENV === 'development') {
+    app.use(
+      userSession({
+        proxy: true,
+        saveUninitialized: false,
+        resave: false,
+        secret: process.env.SECRETS,
+        store: sessionStore,
+        cookie: {
+          expires: config.defaultValues.expiration,
+          secure: false,
+          sameSite: true,
+          httpOnly: true,
+        },
+      })
+    );
+  }
 }
