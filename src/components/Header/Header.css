@@ -52,6 +52,22 @@
   }
 }
 
+@media only screen and (max-height: 770px) and (orientation: landscape) {
+  .header-wrapper {
+    height: 100px;
+    margin-left: 20px;
+  }
+  .header {
+    height: 50px;
+  }
+  .header-logo {
+    width: 200px;
+  }
+  .menu-button {
+    font-size: 22px;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .header-logo {
     display: none;
