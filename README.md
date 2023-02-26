@@ -1,5 +1,6 @@
-# A simple online casino fullstack web application with a roulette game. 
+# The Crystal
 
+A simple online casino experience, fullstack web application with a roulette game. 
 Cookie-based authentication, no signup and login needed. 
 
 ## Used technologies
