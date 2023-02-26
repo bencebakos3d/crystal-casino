@@ -1,22 +1,14 @@
-const cors = require('cors');
 import { setUpRouletteRoutes } from './routes/rouletteRouter';
 import { initSessions } from './sessions/session';
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
+import express from 'express';
+import path from 'path';
+import cookieParser from 'cookie-parser';
 import config from './config';
 
 const PORT = process.env.PORT;
-const url = process.env.URL;
 
 export const app = express();
 
-app.use(
-  cors({
-    origin: url,
-    credentials: true,
-  })
-);
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'build')));
