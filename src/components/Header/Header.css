@@ -46,20 +46,27 @@
   margin-bottom: 5px;
 }
 
+@media only screen and (max-width: 1024px) and (orientation: portrait) {
+  .header-wrapper {
+    height: 150px;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .header-logo {
-    width: 250px;
-    margin-right: unset;
+    display: none;
   }
   .header-wrapper {
     width: 100%;
     flex-direction: column-reverse;
     margin-left: 0;
     align-items: baseline;
+    height: 50px;
   }
   .header {
     width: 100%;
     justify-content: space-evenly;
+    height: unset;
   }
   .menu-button {
     width: 50%;

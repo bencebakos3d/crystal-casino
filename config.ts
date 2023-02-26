@@ -1,4 +1,4 @@
-import dotenv from 'dotenv';
+import * as dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -8,12 +8,12 @@ export default {
     user: process.env.MYSQL_USER,
     port: parseInt(process.env.MYSQL_PORT!),
     password: process.env.MYSQL_PASSWORD,
-    database: process.env.MYSQL_DATABASE
+    database: process.env.MYSQL_DATABASE,
   },
 
-  defaultValues:{
+  defaultValues: {
     defaultUsername: process.env.DEFAULT_NAME,
     defaultBalance: parseInt(process.env.DEFAULT_BALANCE!),
-    expiration: parseInt(process.env.COOKIE_EXPIRATION!)
-  }
+    expiration: parseInt(process.env.COOKIE_EXPIRATION!),
+  },
 };

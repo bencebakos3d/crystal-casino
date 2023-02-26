@@ -11,4 +11,4 @@ React, NodeJS (Express), MySQL and Typescript.
 - Open a terminal and install dependencies with `npm install`
 - Start the server with `npm start`
 
-Feel free to contact me if you have any suggestions or comments!  
+Feel free to contact me if you have any suggestions or comments!

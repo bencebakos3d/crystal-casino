@@ -11,7 +11,7 @@ function App() {
   if (!document.cookie.match('connect.sid')) {
     localStorage.setItem('user-balance', '2000');
     console.log('You got a nice cookie ');
-    fetch(`${url}/setcookie`, {
+    fetch(`/api/setcookie`, {
       credentials: 'include',
       method: 'GET',
       headers: {
