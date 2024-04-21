@@ -50,7 +50,7 @@
 }
 .roulette-wheel-wrapper {
   height: 100%;
-  width: 40%;
+  max-width: 40%;
   position: relative;
   aspect-ratio: 1;
 }
@@ -143,6 +143,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .roulette-fields {
@@ -395,6 +396,42 @@
 }
 .inactive-btn:hover {
   transform: none;
+}
+
+@media only screen and (max-height: 770px) and (orientation: landscape) {
+  .roulette-table-border {
+    max-width: 900px;
+  }
+  .roulette-table-wrapper {
+    padding: 20px;
+  }
+  .roulette-page-wrapper {
+    height: calc(100vh - 100px);
+  }
+  .chips-wrapper > div {
+    width: 50px;
+  }
+  .large-button {
+    width: 150px;
+    height: 60px;
+    font-size: 26px;
+  }
+  .roulette-footer {
+    height: 100px;
+  }
+}
+
+@media only screen and (max-height: 600px) and (orientation: landscape) {
+  .roulette-table-wrapper {
+    padding: 10px;
+  }
+  .roulette-table-border {
+    max-width: 700px;
+  }
+  .roulette-numbers {
+    height: 35px;
+    margin-bottom: 20px;
+  }
 }
 
 @media only screen and (max-width: 1024px) and (orientation: portrait) {
