@@ -1,8 +1,8 @@
 import { setUpRouletteRoutes } from './routes/rouletteRouter';
 import { initSessions } from './sessions/session';
-import * as express from 'express';
-import * as path from 'path';
-import * as cookieParser from 'cookie-parser';
+import express from 'express';
+import path from 'path';
+import cookieParser from 'cookie-parser';
 import config from './config';
 
 const PORT = process.env.PORT;

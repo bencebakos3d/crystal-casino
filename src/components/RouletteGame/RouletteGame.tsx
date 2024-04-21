@@ -30,8 +30,6 @@ export default function RouletteGame() {
   // Sets the duration of the wheel spinning animation in millisecons
   const animationDuration = 5000;
 
-  const url = process.env.REACT_APP_BACKEND_URL;
-
   // Spins roulette wheel and ball
   function spinRoulette(angle: number): void {
     const wheel = document.getElementById('rouletteWheel') as HTMLElement;

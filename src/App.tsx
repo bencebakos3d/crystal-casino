@@ -6,8 +6,6 @@ import Index from './pages/Index/Index';
 import Roulette from './pages/Roulette/Roulette';
 
 function App() {
-  const url = process.env.REACT_APP_BACKEND_URL;
-
   if (!document.cookie.match('connect.sid')) {
     localStorage.setItem('user-balance', '2000');
     console.log('You got a nice cookie ');
